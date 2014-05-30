@@ -1,5 +1,5 @@
 #include "Nixin_SoundFile.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 #include "Nixin_Memory_Utility.h"
 
 #include <fstream>

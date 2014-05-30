@@ -1,7 +1,7 @@
 #ifndef _NIXIN_VBUFFER_H_
 #define _NIXIN_VBUFFER_H_
 
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 #include "Nixin_Types.h"
 #include <QOpenGLFunctions_4_3_Core>
 #include <memory>
@@ -26,6 +26,8 @@ namespace Nixin
 
         void                        swap( GLBuffer& a, GLBuffer& b );
 
+        GLuint                      GetID() const;
+
         void						Bind( GLenum target ) const;
         void                        Release(GLenum target ) const;
         void                        Reserve( GLenum target, GLsizei dataSize );
@@ -44,6 +46,7 @@ namespace Nixin
 
 
         bool                        IsBound( GLenum target ) const;
+        GLsizei                     GetSize() const;
 
 
 	private:

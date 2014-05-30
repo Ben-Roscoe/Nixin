@@ -1,5 +1,5 @@
-#include "Nixin_FrameBuffer.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Framebuffer.h"
+#include "Nixin_Debug.h"
 
 
 namespace Nixin
@@ -15,7 +15,7 @@ namespace Nixin
     Framebuffer::Framebuffer()
     {
         // Get the max number of colour attachments available on this system.
-        GLint       maxColourAttachments;
+        GLint       maxColourAttachments        = 0;
         gl->glGetIntegerv( GL_MAX_COLOR_ATTACHMENTS, &maxColourAttachments );
         colourAttachments.resize( maxColourAttachments );
 

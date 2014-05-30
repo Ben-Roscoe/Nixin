@@ -1,5 +1,5 @@
 #include "Nixin_SoundEngine.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 #include <AL/alc.h>
 

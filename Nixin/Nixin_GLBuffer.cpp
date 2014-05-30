@@ -1,5 +1,5 @@
 #include "Nixin_GLBuffer.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 
 namespace Nixin
@@ -30,7 +30,6 @@ namespace Nixin
         size	= std::max( initialSize, 0 );
         access	= initialAccess;
 
-        gl->initializeOpenGLFunctions();
         GenBuffer();
         Bind( target );
         SetData( target, initialSize, initialData );
@@ -92,6 +91,16 @@ namespace Nixin
             gl->glDeleteBuffers( 1, &id );
             id = 0;
         }
+    }
+
+
+
+    //
+    // GetID
+    //
+    GLuint GLBuffer::GetID() const
+    {
+        return id;
     }
 
 
@@ -294,6 +303,16 @@ namespace Nixin
         GLint                  bufferBinding = 0;
         gl->glGetIntegerv( GL_BUFFER_BINDING, &bufferBinding );
         return ( static_cast<GLuint>( bufferBinding ) == id );
+    }
+
+
+
+    //
+    // GetSize
+    //
+    GLsizei GLBuffer::GetSize() const
+    {
+        return size;
     }
 
 

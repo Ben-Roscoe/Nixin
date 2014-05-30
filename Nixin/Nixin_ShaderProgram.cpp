@@ -3,7 +3,7 @@
 
 #include "Nixin_ShaderProgram.h"
 #include "Nixin_Utility.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 
 

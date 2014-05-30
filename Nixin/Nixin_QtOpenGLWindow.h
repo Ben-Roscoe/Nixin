@@ -11,7 +11,7 @@
 
 namespace Nixin
 {
-    class QtOpenGLWindow : public QWindow, public OpenGLFunctions
+    class QtOpenGLWindow : public QWindow
     {
 
         Q_OBJECT
@@ -30,6 +30,7 @@ namespace Nixin
 
 
         QOpenGLContext*                 openglContext           = nullptr;
+        OpenGLFunctions*                gl                      = nullptr;
 
 
 

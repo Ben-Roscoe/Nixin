@@ -5,7 +5,7 @@
 #include "Nixin_Matrix.h"
 #include "Nixin_Point.h"
 #include "Nixin_Math.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 
 

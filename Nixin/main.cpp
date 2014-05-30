@@ -101,6 +101,7 @@
 #include <QGroupBox>
 #include <QLayout>
 #include "mainwindowtest.h"
+#include "Nixin_TransformFeedback.h"
 
 
 
@@ -113,27 +114,7 @@ int main( int argc, char* argv[] )
 
     Nixin::Application::Start();
 
-//    Nixin::GameWindow           gw;
-//    QWidget*                    ggw = QWidget::createWindowContainer( &gw );
-//    ggw->show();
-
-//    gw.Draw();
-
-//    ggw->show();
-
-//    QPushButton qpb{ ggw };
-//    qpb.show();
-//    qpb.setGeometry( 0, 0, 100, 100 );
-
-//    QGridLayout layout( ggw );
-
-//    ggw->setLayout( &layout );
-
-//    ggw->layout()->addWidget( &qpb );
-
     MainWindowTest                  mainWindow;
-  //  mainWindow.show();
-//    Nixin::QtOpenGLWidget             mainWindow;
 
 
     return a.exec();

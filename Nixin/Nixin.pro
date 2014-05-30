@@ -25,9 +25,7 @@ SOURCES += main.cpp\
     Nixin_Camera.cpp \
     Nixin_Canvas.cpp \
     Nixin_Colour.cpp \
-    Nixin_Debug_Output.cpp \
     Nixin_Font.cpp \
-    Nixin_FrameBuffer.cpp \
     Nixin_GameTime.cpp \
     Nixin_Image.cpp \
     Nixin_Keyboard.cpp \
@@ -54,15 +52,17 @@ SOURCES += main.cpp\
     Nixin_GLBuffer.cpp \
     Nixin_Renderbuffer.cpp \
     Nixin_FramebufferAttachment.cpp \
-    mainwindowtest.cpp
+    mainwindowtest.cpp \
+    Nixin_Debug.cpp \
+    Nixin_Framebuffer.cpp \
+    Nixin_TransformFeedbackBinding.cpp \
+    Nixin_TransformFeedback.cpp
 
 HEADERS += \
     Nixin_Camera.h \
     Nixin_Canvas.h \
     Nixin_Colour.h \
-    Nixin_Debug_Output.h \
     Nixin_Font.h \
-    Nixin_FrameBuffer.h \
     Nixin_GameTime.h \
     Nixin_Image.h \
     Nixin_Keyboard.h \
@@ -92,7 +92,11 @@ HEADERS += \
     Nixin_Renderbuffer.h \
     Nixin_FramebufferAttachment.h \
     Nixin_Types.h \
-    mainwindowtest.h
+    mainwindowtest.h \
+    Nixin_Debug.h \
+    Nixin_Framebuffer.h \
+    Nixin_TransformFeedbackBinding.h \
+    Nixin_TransformFeedback.h
 
 FORMS += \
     mainwindowtest.ui

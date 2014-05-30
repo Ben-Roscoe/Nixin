@@ -18,6 +18,7 @@ MainWindowTest::MainWindowTest(QWidget *parent) :
     gameWindowContainer->show();
     gameWindow.Draw();
     gameWindowContainer->setMouseTracking( true );
+
 }
 
 MainWindowTest::~MainWindowTest()

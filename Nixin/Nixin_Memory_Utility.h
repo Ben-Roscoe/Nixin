@@ -4,7 +4,7 @@
 
 #include <memory>
 #include <cstring>
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 namespace Nixin
 {

@@ -14,6 +14,7 @@ Nixin::QtOpenGLWindow::QtOpenGLWindow( QtOpenGLWindow* share, QWindow* parent ) 
 
     // Create the OpenGL context.
     openglContext = new QOpenGLContext( this );
+
     openglContext->create();
 
     if( share != nullptr )
@@ -23,8 +24,8 @@ Nixin::QtOpenGLWindow::QtOpenGLWindow( QtOpenGLWindow* share, QWindow* parent ) 
 
     openglContext->makeCurrent( this );
 
-
-    initializeOpenGLFunctions();
+    gl = openglContext->versionFunctions<OpenGLFunctions>();
+    gl->initializeOpenGLFunctions();
 }
 
 

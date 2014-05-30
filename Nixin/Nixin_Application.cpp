@@ -1,5 +1,5 @@
 #include "Nixin_Application.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 #include <AL/al.h>
 #include <AL/alc.h>

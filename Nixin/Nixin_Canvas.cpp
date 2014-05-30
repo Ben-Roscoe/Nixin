@@ -2,7 +2,7 @@
 #include "Nixin_FrameBuffer.h"
 #include "Nixin_Utility.h"
 #include "Nixin_Math.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 #include <algorithm>
 #include <exception>

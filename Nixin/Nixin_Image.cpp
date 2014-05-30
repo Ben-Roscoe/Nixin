@@ -1,5 +1,5 @@
 #include "Nixin_Image.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 #include <FreeImage.h>
 

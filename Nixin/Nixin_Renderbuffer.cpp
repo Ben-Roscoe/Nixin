@@ -1,5 +1,5 @@
 #include "Nixin_Renderbuffer.h"
-#include "Nixin_Debug_Output.h"
+#include "Nixin_Debug.h"
 
 
 
