@@ -1,0 +1,62 @@
+#ifndef _NIXIN_VBUFFER_H_
+#define _NIXIN_VBUFFER_H_
+
+#include "Nixin_Debug_Output.h"
+#include <QOpenGLFunctions>
+#include <memory>
+
+namespace Nixin
+{
+    class GLBuffer
+	{
+
+
+
+	public:
+
+
+
+        GLBuffer( GLenum initialAccess );
+        GLBuffer( GLenum target, GLenum initialAccess, GLsizei initialSize, const void* initialData = nullptr );
+        GLBuffer( const GLBuffer& other );
+        GLBuffer( GLBuffer&& other );
+        GLBuffer& operator=( GLBuffer other );
+        ~GLBuffer();
+        
+        void                        swap( GLBuffer& a, GLBuffer& b );
+
+        void						Bind( GLenum target ) const;
+        void                        Reserve( GLenum target, GLsizei dataSize );
+        void                        SetData( GLenum target, GLsizei dataSize, const void* data );
+        void                        SetDataRange( GLenum target, GLintptr start, GLsizeiptr length, const void* data );
+
+        //DataType*					Map();
+        //DataType*					MapRange( const unsigned int start, const unsigned int end );
+        //void						Unmap();
+
+
+
+	private:
+
+
+
+        std::unique_ptr<QOpenGLFunctions>           gl              = std::unique_ptr<QOpenGLFunctions>( new QOpenGLFunctions{ QOpenGLContext::currentContext() } );
+        GLuint                                      id				= 0;
+        GLsizei                                     size			= 0;
+        GLenum                                      access          = GL_STATIC_DRAW;
+
+
+        void                                        GenBuffer();
+
+
+
+	};
+
+
+}
+
+
+
+
+
+#endif

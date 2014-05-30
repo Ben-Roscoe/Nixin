@@ -1,0 +1,17 @@
+#version 400
+in vec2					fragTexCoords;
+in vec4					fragTint;
+
+uniform sampler2D		spriteTexture;
+
+out vec4				colour;
+
+
+
+//
+// main
+//
+void main()
+{
+	colour = texture2D( spriteTexture, fragTexCoords ) * fragTint;
+}
