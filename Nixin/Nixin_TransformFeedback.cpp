@@ -102,7 +102,7 @@ namespace Nixin
     //
     // swap
     //
-    void TransformFeedback::swap( TransformFeedback& a, TransformFeedback& b )
+    void swap( TransformFeedback& a, TransformFeedback& b )
     {
         using std::swap;
 
@@ -188,12 +188,69 @@ namespace Nixin
 
 
     //
+    // ReleaseAll
+    //
+    void TransformFeedback::ReleaseAll()
+    {
+        for( size_t i = 0; i < bindings.size(); i++ )
+        {
+            if( !bindings[i].IsEmpty() )
+            {
+                ReleaseBuffer( i );
+            }
+        }
+    }
+
+
+
+    //
+    // Begin
+    //
+    void TransformFeedback::Begin( GLenum primitiveMode ) const
+    {
+        gl->glBeginTransformFeedback( primitiveMode );
+    }
+
+
+
+    //
+    // End
+    //
+    void TransformFeedback::End() const
+    {
+        gl->glEndTransformFeedback();
+    }
+
+
+
+    //
+    // Pause
+    //
+    void TransformFeedback::Pause() const
+    {
+        gl->glPauseTransformFeedback();
+    }
+
+
+
+    //
+    // Resume
+    //
+    void TransformFeedback::Resume() const
+    {
+        gl->glResumeTransformFeedback();
+    }
+
+
+
+
+    //
     // GetBindingsCount
     //
     size_t TransformFeedback::GetBindingCount() const
     {
         size_t count = 0;
-        std::for_each( bindings.begin(), bindings.end(), [&]( TransformFeedbackBinding& x ){ if( !x.IsEmpty() ) count++; } );
+        std::for_each( bindings.begin(), bindings.end(), [&count]( TransformFeedbackBinding& x ){ if( !x.IsEmpty() ) count++; } );
         return count;
     }
 
@@ -205,22 +262,6 @@ namespace Nixin
     size_t TransformFeedback::GetMaxBindings() const
     {
         return bindings.size();
-    }
-
-
-
-    //
-    // ReleaseAll
-    //
-    void TransformFeedback::ReleaseBuffer()
-    {
-        for( size_t i = 0; i < bindings.size(); i++ )
-        {
-            if( !bindings[i].IsEmpty() )
-            {
-                ReleaseBuffer( i );
-            }
-        }
     }
 
 

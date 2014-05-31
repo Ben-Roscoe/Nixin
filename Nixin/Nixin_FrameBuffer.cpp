@@ -138,7 +138,7 @@ namespace Nixin
     //
     // swap
     //
-    void Framebuffer::swap( Framebuffer& a, Framebuffer& b )
+    void swap( Framebuffer& a, Framebuffer& b )
     {
         using std::swap;
 

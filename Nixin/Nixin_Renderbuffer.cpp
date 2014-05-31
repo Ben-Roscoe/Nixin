@@ -69,7 +69,7 @@ namespace Nixin
     //
     // swap
     //
-    void Renderbuffer::swap( Renderbuffer& a, Renderbuffer& b )
+    void swap( Renderbuffer& a, Renderbuffer& b )
     {
         using std::swap;
 

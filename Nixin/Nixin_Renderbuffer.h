@@ -1,7 +1,7 @@
 #ifndef NIXIN_RENDERBUFFER_H
 #define NIXIN_RENDERBUFFER_H
 
-#include <QOpenGLFunctions_4_3_Core>x
+#include <QOpenGLFunctions_4_3_Core>
 #include <memory>
 
 #include "Nixin_Point.h"
@@ -35,7 +35,7 @@ namespace Nixin
         Renderbuffer( const Renderbuffer& other )               = delete;
         Renderbuffer& operator=( const Renderbuffer& other )    = delete;
 
-        void                                    swap( Renderbuffer& a, Renderbuffer& b );
+        friend void                             swap( Renderbuffer& a, Renderbuffer& b );
 
         GLuint                                  GetID() const;
         void                                    Bind() const;

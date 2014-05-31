@@ -109,7 +109,7 @@ namespace Nixin
     //
     // swap
     //
-    void GLBuffer::swap(Nixin::GLBuffer& a, Nixin::GLBuffer& b)
+    void swap(Nixin::GLBuffer& a, Nixin::GLBuffer& b)
     {
         using           std::swap;
 

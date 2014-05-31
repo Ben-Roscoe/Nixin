@@ -24,7 +24,7 @@ namespace Nixin
         GLBuffer& operator=( GLBuffer other );
         ~GLBuffer();
 
-        void                        swap( GLBuffer& a, GLBuffer& b );
+        friend void                 swap( GLBuffer& a, GLBuffer& b );
 
         GLuint                      GetID() const;
 

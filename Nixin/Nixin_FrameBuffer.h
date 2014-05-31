@@ -32,7 +32,7 @@ namespace Nixin
         Framebuffer& operator=( Framebuffer other );
         ~Framebuffer();
 		
-        void                                    swap( Framebuffer& a, Framebuffer& b );
+        friend void                             swap( Framebuffer& a, Framebuffer& b );
 
 
         GLuint           						GetID() const;

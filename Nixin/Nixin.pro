@@ -56,7 +56,10 @@ SOURCES += main.cpp\
     Nixin_Debug.cpp \
     Nixin_Framebuffer.cpp \
     Nixin_TransformFeedbackBinding.cpp \
-    Nixin_TransformFeedback.cpp
+    Nixin_TransformFeedback.cpp \
+    Nixin_TextureBase.cpp \
+    Nixin_Texture1DImmutable.cpp \
+    Nixin_Texture1DArrayImmutable.cpp
 
 HEADERS += \
     Nixin_Camera.h \
@@ -96,7 +99,10 @@ HEADERS += \
     Nixin_Debug.h \
     Nixin_Framebuffer.h \
     Nixin_TransformFeedbackBinding.h \
-    Nixin_TransformFeedback.h
+    Nixin_TransformFeedback.h \
+    Nixin_TextureBase.h \
+    Nixin_Texture1DImmutable.h \
+    Nixin_Texture1DArrayImmutable.h
 
 FORMS += \
     mainwindowtest.ui

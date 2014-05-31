@@ -26,7 +26,7 @@ namespace Nixin
         TransformFeedback& operator=( TransformFeedback other );
         ~TransformFeedback();
 
-        void                                        swap( TransformFeedback& a, TransformFeedback& b );
+        friend void                                 swap( TransformFeedback& a, TransformFeedback& b );
 
         void                                        Bind() const;
         void                                        Release() const;
@@ -34,6 +34,11 @@ namespace Nixin
         void                                        BindBuffer( const GLBuffer* buffer, GLuint index, GLint offset, GLsizei length );
         void                                        ReleaseBuffer( GLuint index );
         void                                        ReleaseAllBuffers();
+
+        void                                        Begin( GLenum primitiveMode ) const;
+        void                                        End() const;
+        void                                        Pause() const;
+        void                                        Resume() const;
 
         size_t                                      GetBindingCount() const;
         size_t                                      GetMaxBindings() const;
