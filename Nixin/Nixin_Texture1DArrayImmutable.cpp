@@ -1,4 +1,5 @@
 #include "Nixin_Texture1DArrayImmutable.h"
+#include "Nixin_Debug.h"
 
 
 
@@ -37,8 +38,9 @@ namespace Nixin
         height                  = other.height;
 
 
-        if( id != 0 )
+        if( other.id != 0 )
         {
+            Bind();
             SetStorage();
 
             for( GLint i = 0; i < levels; i++ )
@@ -85,7 +87,7 @@ namespace Nixin
     //
     // swap
     //
-    void swap( Texture1DArrayImmutable a, Texture1DArrayImmutable b )
+    void swap( Texture1DArrayImmutable& a, Texture1DArrayImmutable& b )
     {
         using std::swap;
 
@@ -110,7 +112,7 @@ namespace Nixin
     //
     // SetData
     //
-    void Texture1DArrayImmutable::SetData( GLint level, GLenum format, GLenum type, const void* data, GLsizei dataWidth, GLsizei dataHeight, GLint xoffset, GLint yoffset ) const
+    void Texture1DArrayImmutable::SetData( GLint level, GLenum format, GLenum type, GLsizei dataWidth, GLsizei dataHeight, const void* data, GLint xoffset, GLint yoffset ) const
     {
         if( xoffset < 0 || ( xoffset + dataWidth ) >= width || dataWidth < 0 || yoffset < 0 || ( yoffset + dataHeight ) >= height || dataHeight < 0 )
         {
@@ -170,7 +172,7 @@ namespace Nixin
     //
     GLsizei Texture1DArrayImmutable::GetWidth() const
     {
-        return widthl
+        return width;
     }
 
 
@@ -178,7 +180,7 @@ namespace Nixin
     //
     // GetHeight
     //
-    GLsizie Texture1DArrayImmutable::GetHeight() const
+    GLsizei Texture1DArrayImmutable::GetHeight() const
     {
         return height;
     }

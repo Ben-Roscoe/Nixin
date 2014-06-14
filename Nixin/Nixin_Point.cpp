@@ -181,12 +181,20 @@ Nixin::Point Nixin::Point::NormalToFace( const Point& a, const Point& b, const P
 	Point							v2 = Point( b.x - c.x, b.y - c.y, b.z - c.z );
 	v1 = v1.GetNormal();
 	v2 = v2.GetNormal();
-	return Cross( v1, v2 ).GetNormal();
+    return Cross( v1, v2 ).GetNormal();
 }
 
 
 
-// Constructors / Destructors
+//
+// Lerp
+//
+Nixin::Point Nixin::Point::Lerp( const Nixin::Point& a, const Nixin::Point& b, float time )
+{
+    return Point( Nixin::Lerp( a.x, b.x, time ), Nixin::Lerp( a.y, b.y, time ), Nixin::Lerp( a.z, b.z, time ) );
+}
+
+
 
 //
 // Point

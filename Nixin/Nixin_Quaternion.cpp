@@ -78,7 +78,7 @@ Nixin::Quaternion::Quaternion( const float rotation, const Point& axis )
 
 
 //
-// ~NEQuaternion
+// ~Quaternion
 //
 Nixin::Quaternion::~Quaternion()
 {

@@ -8,7 +8,7 @@
 
 namespace Nixin
 {
-    class Texture1DArrayImmutable : TextureBase
+    class Texture1DArrayImmutable : public TextureBase
     {
 
 
@@ -25,10 +25,10 @@ namespace Nixin
 
         friend void                         swap( Texture1DArrayImmutable& a, Texture1DArrayImmutable& b );
 
-        void                                Bind() const override;
-        void                                SetData( GLint level, GLenum format, GLenum type, const void* data = nullptr, GLsizei dataWidth = width, GLsizei dataHeight = height, GLint xoffset = 0, GLint yoffset = 0 ) const;
+        void                                Bind() const;
+        void                                SetData( GLint level, GLenum format, GLenum type, GLsizei dataWidth, GLsizei dataHeight, const void* data = nullptr, GLint xoffset = 0, GLint yoffset = 0 ) const;
         void                                CopyDataFromFramebuffer( GLint level, GLint x, GLint y, GLsizei dataWidth, GLsizei dataHeight, GLint xoffset = 0, GLint yoffset = 0 ) const;
-        void                                GetData( GLint level, GLenum format, GLenum type, GLvoid* data = 0 ) const override;
+        void                                GetData( GLint level, GLenum format, GLenum type, GLvoid* data = 0 ) const;
 
         GLenum                              GetInternalFormat() const;
         GLsizei                             GetLevels() const;

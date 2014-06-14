@@ -9,7 +9,7 @@
 
 namespace Nixin
 {
-    class Texture1DImmutable : TextureBase
+    class Texture1DImmutable : public TextureBase
     {
 
 
@@ -26,10 +26,10 @@ namespace Nixin
 
         friend void                         swap( Texture1DImmutable& a, Texture1DImmutable& b );
 
-        void                                Bind() const override;
-        void                                SetData( GLint level, GLenum format, GLenum type, const void* data = nullptr, GLsizei length = width, GLint offset = 0 ) const;
+        GLuint                              Bind() const;
+        void                                SetData( GLint level, GLenum format, GLenum type, GLsizei length, const void* data = nullptr, GLint offset = 0 ) const;
         void                                CopyDataFromFramebuffer( GLint level, GLint x, GLint y, GLsizei length, GLint offset = 0 ) const;
-        void                                GetData( GLint level, GLenum format, GLenum type, GLvoid* data = 0 ) const override;
+        void                                GetData( GLint level, GLenum format, GLenum type, GLvoid* data = 0 ) const;
 
         GLsizei                             GetWidth() const;
         GLint                               GetLevels() const;

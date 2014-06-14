@@ -102,6 +102,8 @@
 #include <QLayout>
 #include "mainwindowtest.h"
 #include "Nixin_TransformFeedback.h"
+#include "Nixin_Uniform.h"
+
 
 
 
@@ -115,7 +117,6 @@ int main( int argc, char* argv[] )
     Nixin::Application::Start();
 
     MainWindowTest                  mainWindow;
-
 
     return a.exec();
 }

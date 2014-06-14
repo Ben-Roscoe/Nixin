@@ -11,7 +11,7 @@ namespace Nixin
     //
     TransformFeedbackBinding::TransformFeedbackBinding( const TransformFeedback* bindingOwner, const GLBuffer* bindingBuffer, GLsizei bindingOffset, GLsizei bindingLength )
     {
-        owner   = biningOwner;
+        owner   = bindingOwner;
         buffer  = bindingBuffer;
         offset  = bindingOffset;
         length  = bindingLength;

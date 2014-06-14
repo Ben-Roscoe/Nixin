@@ -36,6 +36,7 @@ namespace Nixin
 		static Point	Cross( const Point& a, const Point& b );
 		static Point	TranslateByNormal( const Point& a, const Point& b, const float length );
 		static Point    NormalToFace( const Point& a, const Point& b, const Point& c );
+        static Point    Lerp( const Point& a, const Point& b, float time );
 
 
 		Point();																					// Initialise all components to 0.

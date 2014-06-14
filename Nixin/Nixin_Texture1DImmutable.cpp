@@ -15,7 +15,7 @@ namespace Nixin
     //
     // Texture1DImmutable
     //
-    Texture1DImmutable::Texture1DImmutable( GLint textureLevels, GLsizei internalWidth, GLenum textureInternalFormat )
+    Texture1DImmutable::Texture1DImmutable( GLint textureLevels, GLsizei textureWidth, GLenum textureInternalFormat )
     {
         levels          = textureLevels;
         width           = textureWidth;
@@ -36,8 +36,9 @@ namespace Nixin
         width              = other.width;
         internalFormat     = other.internalFormat;
 
-        if( id != 0 )
+        if( other.id != 0 )
         {
+            Bind();
             SetStorage();
 
             for( GLint i = 0; i < levels; i++ )
@@ -66,7 +67,7 @@ namespace Nixin
     {
         swap( static_cast<TextureBase&>( *this ), static_cast<TextureBase&>( other ) );
         swap( *this, other );
-        retunr *this;
+        return *this;
     }
 
 
@@ -98,7 +99,7 @@ namespace Nixin
     //
     // Bind
     //
-    void Texture1DImmutable::Bind() const
+    GLuint Texture1DImmutable::Bind() const
     {
         return id;
     }
@@ -108,7 +109,7 @@ namespace Nixin
     //
     // SetData
     //
-    void Texture1DImmutable::SetData( GLint level, GLenum format, GLenum type, const void* data, GLsizei length = width, GLint offset = 0 ) const
+    void Texture1DImmutable::SetData( GLint level, GLenum format, GLenum type, GLsizei length, const void* data, GLint offset ) const
     {
         if( offset < 0 || ( offset + length ) >= width || length < 0 )
         {

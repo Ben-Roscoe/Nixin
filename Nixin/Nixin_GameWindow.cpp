@@ -62,7 +62,7 @@ namespace Nixin
         gameTime.Update();
     }
 
-
+#include "Nixin_Texture1DImmutable.h"
 
     //
     // Draw

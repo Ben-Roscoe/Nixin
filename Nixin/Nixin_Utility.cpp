@@ -73,70 +73,20 @@ void Nixin::Utility::UninitialiseNEShaders()
 //
 std::vector<std::string> Nixin::Utility::TokeniseString( const std::string& str, const std::string& dividers, const bool tokenisePerChar, const bool removeDividers )
 {
-	std::vector<std::string>        tokens;									// The final tokens to return.
-	std::string						currentToken;							// Current token being added to the vector.
-	int								foundPosition = str.size() - 1;         // The current position of the nearest divider.
-	int								lastPosition = 0;						// The position of the last divider.
-	int								tempPosition = 0;						// This is used to find the closest divider out of all dividers.
+    std::vector<std::string>        tokens;
+    size_t                          last = 0;
 
-	do
-	{
-		// Set found position to the largest value possible. This will be the position of the last divider, if one does not exist ( so the entire string will still be
-		// read as a token ).
-		foundPosition = str.size();
-
-		// If we want to tokenise the string with dividers per char.
-		if( tokenisePerChar )
-		{
-			// Loop through each divider and see which one is closest to the current position in the string.
-			for( int unsigned i = 0; i < dividers.size(); i++ )
-			{
-				tempPosition = str.find( dividers[i], lastPosition );
-				if( tempPosition < foundPosition && tempPosition != std::string::npos )
-				{
-					// Save the closest divider position.
-					foundPosition = tempPosition;
-				}
-			}
-		}
-		// Otherwise treat the entire string as one divider.
-		else
-		{
-			foundPosition = str.find( dividers, lastPosition );
-		}
-
-		// Take the substring from the previous position, to the next divider. Do not allow empty strings.
-		currentToken = str.substr( lastPosition, foundPosition - lastPosition );
-		if( currentToken != "" )
-		{
-			tokens.push_back( currentToken );
-		}
-
-		// If the user has chosen to keep dividers, they will be stored as their own token.
-		if( !removeDividers )
-		{
-			if( foundPosition != str.size() )
-			{
-				// Get the substring from the current divider to the current divider + 1 ( must be the divider itself ).
-				tokens.push_back( str.substr( foundPosition, 1 ) );
-			}
-		}
-
-		if( tokenisePerChar )
-		{
-			// We're done with this divider, so move past it by 1 position.
-			lastPosition = foundPosition + 1;
-		}
-		else
-		{
-			// We're done with this divider, and since it's a string, then increase position by its length.
-			lastPosition = foundPosition + dividers.size();
-		}
-
-	// While the position of the next divider is within the string.
-	} while( foundPosition != std::string::npos && foundPosition != str.size() );
-
-
+    for( size_t i = 1; i < str.size(); i++ )
+    {
+        if( dividers.find( str[i] ) )
+        {
+            if( i - last != 1 && !removeDividers )
+            {
+                tokens.push_back( str.substr( last, ( i - last ) ) );
+            }
+            last = i;
+        }
+    }
 	return tokens;
 }
 
@@ -172,8 +122,8 @@ std::string Nixin::Utility::GetFileText( const std::string& fileName )
 
 
 	// Open the file.
-	file.open( fileName.c_str(), std::fstream::in );
-	if( file.fail() )
+    file.open( fileName.c_str(), std::fstream::in );
+    if( !file.is_open() )
 	{
 		// Throw if the file failed to open.
 		Nixin::Debug::FatalError( "Could not open file for reading." );

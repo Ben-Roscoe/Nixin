@@ -26,9 +26,6 @@ namespace Nixin
 
         friend void                        swap( TextureBase& a, TextureBase& b );
 
-        virtual void                       Bind() const = 0;
-        virtual void                       GetData( GLint level, GLenum format, GLenum type, GLvoid* data = 0 ) const = 0;
-
 
 
     protected:

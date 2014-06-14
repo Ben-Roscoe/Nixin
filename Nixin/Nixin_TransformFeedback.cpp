@@ -41,7 +41,7 @@ namespace Nixin
         gl          = other.gl;
         bindings    = other.bindings;
 
-        if( id != 0 )
+        if( other.id != 0 )
         {
             GenTransformFeedback();
             Bind();
@@ -56,7 +56,7 @@ namespace Nixin
                     }
                     else
                     {
-                        gl->glBindBufferBaseRange( bindingTarget, i, bindings[i].GetBuffer()->GetID(), bindings[i].GetOffset(), bindings[i].GetLength() );
+                        gl->glBindBufferRange( bindingTarget, i, bindings[i].GetBuffer()->GetID(), bindings[i].GetOffset(), bindings[i].GetLength() );
                     }
                 }
             }
@@ -152,7 +152,7 @@ namespace Nixin
     //
     // BindBuffer
     //
-    void TransformFeedback::BindBuffer( const GLBuffer* buffer, GLuint index, GLint offset, GLsziei length )
+    void TransformFeedback::BindBuffer( const GLBuffer* buffer, GLuint index, GLint offset, GLsizei length )
     {
         if( static_cast<size_t>( index ) >= bindings.size() )
         {
@@ -190,7 +190,7 @@ namespace Nixin
     //
     // ReleaseAll
     //
-    void TransformFeedback::ReleaseAll()
+    void TransformFeedback::ReleaseAllBuffers()
     {
         for( size_t i = 0; i < bindings.size(); i++ )
         {
@@ -250,7 +250,7 @@ namespace Nixin
     size_t TransformFeedback::GetBindingCount() const
     {
         size_t count = 0;
-        std::for_each( bindings.begin(), bindings.end(), [&count]( TransformFeedbackBinding& x ){ if( !x.IsEmpty() ) count++; } );
+        std::for_each( bindings.begin(), bindings.end(), [&count]( const TransformFeedbackBinding& x ){ if( !x.IsEmpty() ) count++; } );
         return count;
     }
 

@@ -33,7 +33,6 @@ namespace Nixin
         if( other.id != 0 )
         {
             GenTexture();
-            Bind();
         }
     }
 
