@@ -573,7 +573,18 @@ void Nixin::Matrix::Print( const std::string& messageTitle ) const
 //
 Nixin::Matrix Nixin::Matrix::operator*( const Matrix& other ) const
 {
-	return Matrix::Multiply( *this, other );
+    return Matrix::Multiply( *this, other );
+}
+
+
+
+//
+// operator=
+//
+Nixin::Matrix &Nixin::Matrix::operator=(const Nixin::Matrix& other)
+{
+    std::copy( other.data.begin(), other.data.end(), data.begin() );
+    return *this;
 }
 
 

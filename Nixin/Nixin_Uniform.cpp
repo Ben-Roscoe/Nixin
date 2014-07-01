@@ -250,7 +250,7 @@ namespace Nixin
     //
     // SetUniform
     //
-    void SetUniformMatrix( OpenGLFunctions* gl, GLint location, const UniformMatrix& value )
+    void SetUniform( OpenGLFunctions* gl, GLint location, const UniformMatrix& value )
     {
         switch( value.matrix.GetRows() )
         {
@@ -301,4 +301,20 @@ namespace Nixin
             }
         }
     }
+
+
+
+    //
+    // SetUniform
+    //
+    void SetUniform( OpenGLFunctions *gl, GLint location, const UniformSampler2D& value )
+    {
+        if( !value.isBound )
+        {
+            gl->glActiveTexture( value.location );
+            gl->glBindTexture( GL_TEXTURE_2D, value.value );
+        }
+        gl->glUniform1ui( location, value.location );
+    }
+
 }

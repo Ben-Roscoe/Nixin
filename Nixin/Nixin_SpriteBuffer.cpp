@@ -279,11 +279,10 @@ void Nixin::SpriteBuffer::End( Canvas& canvas )
     gl->glUseProgram( shader->GetID() );
 
 	// Set the projection matrix, and vertex attributes in the shader.
-	shader->SetUniformMatrix( "projection", canvas.camera.GetProjectionMatrix() );
-	shader->SetVertexAttributePointer( "vertexPosition", 3, Texture::DataType::FLOAT, 0, 0 );
-	shader->SetVertexAttributePointer( "texCoords", 2, Texture::DataType::FLOAT, 0, 12 * maxSpriteCount * sizeof( float ) );
-	shader->SetVertexAttributePointer( "tint", 4, Texture::DataType::FLOAT, 0, 20 * maxSpriteCount * sizeof( float ) );
-
+    shader->SetUniform( "projection", UniformMatrix( canvas.camera.GetProjectionMatrix() ) );
+    shader->SetAttribute( "vertexPosition", 3, GL_FALSE, GL_FLOAT, 0, 0 );
+    shader->SetAttribute( "texCoords", 2, GL_FALSE, GL_FLOAT, 0, 12 * maxSpriteCount * sizeof( float ) );
+    shader->SetAttribute( "tint", 4, GL_FALSE, GL_FLOAT, 0, 20 * maxSpriteCount * sizeof( float ) );
 
 	// Sort sprites.
 	if( spriteSortMode != SpriteSortMode::NO_SORTING )
@@ -307,7 +306,7 @@ void Nixin::SpriteBuffer::End( Canvas& canvas )
 		int				drawCount = 1;					
 
 		// Set the texture sampler.
-		shader->SetSampler2D( "spriteTexture", 0, sprites[count].texture );
+        shader->SetUniform<UniformSampler2D>( "spriteTexture", UniformSampler2D( sprites[count].texture, GL_TEXTURE0, false ) );
 
 		// We step through the buffer, looking for a change in texture. If we find one, then take all the sprites that are next to each, that also have the same texture.
 		for( int i = count + 1; i < sprites.size(); i++ )

@@ -3,6 +3,7 @@
 
 
 #include "Nixin_Types.h"
+#include "Nixin_VertexAttribute.h"
 
 #include <string>
 #include <map>
@@ -15,16 +16,37 @@ namespace Nixin
     class ShaderProgram;
 
 
-    struct UniformField
+    struct Field
     {
         std::string         name;
         std::string         type;
+
+        // How many files is this field present in?
+        size_t              count   = 1;
+
+
+        Field( const std::string& fieldName, const std::string& fieldType )
+        {
+            name = fieldName;
+            type = fieldType;
+        }
     };
 
     struct UniformType
     {
-        std::string                             typeName;
-        std::map<std::string, UniformType>      components;
+        std::string                             name;
+        std::vector<Field>                      members;
+
+
+        UniformType()
+        {
+
+        }
+
+        UniformType( const std::string& typeName )
+        {
+            name = typeName;
+        }
     };
 
 
@@ -49,6 +71,9 @@ namespace Nixin
 
         bool                        Compile();
 
+        const std::vector<Field>&   GetAttributes() const;
+        const std::vector<Field>&   GetUniforms() const;
+        const std::map<std::string, UniformType>& GetUniformTypes() const;
         GLuint                      GetID() const;
         GLenum                      GetType() const;
         bool                        IsCompiled() const;
@@ -67,8 +92,10 @@ namespace Nixin
         GLuint                      id                  = 0;
         GLenum                      type                = GL_VERTEX_SHADER;
         std::string                 source              = "";
-        std::vector<UniformField>   uniformFields;
+        std::vector<Field>          uniformFields;
+        std::vector<Field>          attributeFields;
         std::map<std::string, UniformType>              uniformTypes;
+
 
         bool                        compiled            = false;
 

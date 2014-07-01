@@ -28,7 +28,13 @@ namespace Nixin
 		static ShaderProgram&											GetNixinSpriteShader();
 		static ShaderProgram&											GetNixinPrimitiveShader();
 		static std::string												GetFileText( const std::string& fileName );
-		
+
+        static void                                                     TrimToNext( std::string& str, char c );
+        static void                                                     TrimToWhiteSpace( std::string& str );
+        static void                                                     TrimLeadingWhiteSpace( std::string& str );
+        static void                                                     TrimTrailingWhiteSpace( std::string& str );
+        static size_t                                                   IndexOfNextWhiteSpace( const std::string& str );
+        static size_t                                                   IndexOfNext( const std::string& str, char c );
 
 
 

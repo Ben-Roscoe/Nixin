@@ -1,5 +1,5 @@
 #include "Nixin_UniformBase.h"
-
+#include "Nixin_ShaderProgram.h"
 
 
 namespace Nixin
@@ -10,7 +10,7 @@ namespace Nixin
     //
     // UniformBase
     //
-    UniformBase::UniformBase( const std::string& uniformName, const ShaderProgram* uniformOwner , OpenGLFunctions *ownerGL )
+    UniformBase::UniformBase( const std::string& uniformName, const ShaderProgram* uniformOwner )
     {
         name    = uniformName;
         owner   = uniformOwner;
@@ -42,7 +42,7 @@ namespace Nixin
     //
     // GetOwner
     //
-    const ShaderProgram* GetOwner() const
+    const ShaderProgram* UniformBase::GetOwner() const
     {
         return owner;
     }
@@ -58,6 +58,6 @@ namespace Nixin
     //
     void UniformBase::FindID()
     {
-        gl->glGetUniformLocation( owner->GetID(), name.c_str() );
+        id = gl->glGetUniformLocation( owner->GetID(), name.c_str() );
     }
 }

@@ -45,6 +45,8 @@ namespace Nixin
 		void									Print( const std::string& messageTitle ) const;																		
 
 		Matrix									operator* ( const Matrix& other ) const;
+        Matrix&                                 operator=( const Matrix& other );
+
 
 		int										GetRows() const;																							// Gets the amount of rows.
 		int										GetColumns() const;																							// Gets the amount of columns.

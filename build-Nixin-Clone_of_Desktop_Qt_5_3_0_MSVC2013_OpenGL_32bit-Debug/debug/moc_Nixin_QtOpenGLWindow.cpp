@@ -75,8 +75,6 @@ void *Nixin::QtOpenGLWindow::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_Nixin__QtOpenGLWindow.stringdata))
         return static_cast<void*>(const_cast< QtOpenGLWindow*>(this));
-    if (!strcmp(_clname, "OpenGLFunctions"))
-        return static_cast< OpenGLFunctions*>(const_cast< QtOpenGLWindow*>(this));
     return QWindow::qt_metacast(_clname);
 }
 

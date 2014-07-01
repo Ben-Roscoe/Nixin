@@ -6,7 +6,6 @@ in vec4			colour;
 out vec4        fragColour;
 
 
-
 //
 // main
 //

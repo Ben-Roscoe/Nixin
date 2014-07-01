@@ -17,7 +17,7 @@ CXXFLAGS      = -nologo -Zm200 -Zc:wchar_t -FS -Zi -MDd -GR -W3 -w34100 -w34189 
 INCPATH       = -I"C:\Qt\5.3\msvc2013_opengl\include" -I"C:\Qt\5.3\msvc2013_opengl\include\QtWidgets" -I"C:\Qt\5.3\msvc2013_opengl\include\QtGui" -I"C:\Qt\5.3\msvc2013_opengl\include\QtCore" -I"debug" -I"." -I"..\Nixin\Includes\Include" -I"." -I"C:\Qt\5.3\msvc2013_opengl\mkspecs\win32-msvc2013"
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = glu32.lib opengl32.lib gdi32.lib user32.lib qtmaind.lib /LIBPATH:C:\Users\Ben\Documents\Projects\NixinEngine\Nixin\Includes\Lib C:\Users\Ben\Documents\Projects\NixinEngine\Nixin\Includes\Lib\FreeImage.lib C:\Users\Ben\Documents\Projects\NixinEngine\Nixin\Includes\Lib\freetype252MT.lib C:\Users\Ben\Documents\Projects\NixinEngine\Nixin\Includes\Lib\glew32mx.lib C:\Users\Ben\Documents\Projects\NixinEngine\Nixin\Includes\Lib\libOpenAL32.lib Opengl32.lib /LIBPATH:C:\Qt\5.3\msvc2013_opengl\lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Widgetsd.lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Guid.lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Cored.lib 
+LIBS          = glu32.lib opengl32.lib gdi32.lib user32.lib qtmaind.lib /LIBPATH:C:\Users\Ben\Documents\GitHub\Nixin\Nixin\Includes\Lib C:\Users\Ben\Documents\GitHub\Nixin\Nixin\Includes\Lib\FreeImage.lib C:\Users\Ben\Documents\GitHub\Nixin\Nixin\Includes\Lib\freetype252MT.lib C:\Users\Ben\Documents\GitHub\Nixin\Nixin\Includes\Lib\glew32mx.lib C:\Users\Ben\Documents\GitHub\Nixin\Nixin\Includes\Lib\libOpenAL32.lib Opengl32.lib /LIBPATH:C:\Qt\5.3\msvc2013_opengl\lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Widgetsd.lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Guid.lib C:\Qt\5.3\msvc2013_opengl\lib\Qt5Cored.lib 
 QMAKE         = C:\Qt\5.3\msvc2013_opengl\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -47,9 +47,7 @@ SOURCES       = ..\Nixin\main.cpp \
 		..\Nixin\Nixin_Camera.cpp \
 		..\Nixin\Nixin_Canvas.cpp \
 		..\Nixin\Nixin_Colour.cpp \
-		..\Nixin\Nixin_Debug_Output.cpp \
 		..\Nixin\Nixin_Font.cpp \
-		..\Nixin\Nixin_FrameBuffer.cpp \
 		..\Nixin\Nixin_GameTime.cpp \
 		..\Nixin\Nixin_Image.cpp \
 		..\Nixin\Nixin_Keyboard.cpp \
@@ -76,7 +74,19 @@ SOURCES       = ..\Nixin\main.cpp \
 		..\Nixin\Nixin_GLBuffer.cpp \
 		..\Nixin\Nixin_Renderbuffer.cpp \
 		..\Nixin\Nixin_FramebufferAttachment.cpp \
-		..\Nixin\mainwindowtest.cpp debug\moc_Nixin_QtOpenGLWindow.cpp \
+		..\Nixin\mainwindowtest.cpp \
+		..\Nixin\Nixin_Debug.cpp \
+		..\Nixin\Nixin_Framebuffer.cpp \
+		..\Nixin\Nixin_TransformFeedbackBinding.cpp \
+		..\Nixin\Nixin_TransformFeedback.cpp \
+		..\Nixin\Nixin_TextureBase.cpp \
+		..\Nixin\Nixin_Texture1DImmutable.cpp \
+		..\Nixin\Nixin_Texture1DArrayImmutable.cpp \
+		..\Nixin\Nixin_ShaderFile.cpp \
+		..\Nixin\Nixin_UniformBase.cpp \
+		..\Nixin\Nixin_UniformValues.cpp \
+		..\Nixin\Nixin_Uniform.cpp \
+		..\Nixin\Nixin_VertexAttribute.cpp debug\moc_Nixin_QtOpenGLWindow.cpp \
 		debug\moc_Nixin_QtOpenGLWidget.cpp \
 		debug\moc_Nixin_GameWindow.cpp \
 		debug\moc_mainwindowtest.cpp
@@ -84,9 +94,7 @@ OBJECTS       = debug\main.obj \
 		debug\Nixin_Camera.obj \
 		debug\Nixin_Canvas.obj \
 		debug\Nixin_Colour.obj \
-		debug\Nixin_Debug_Output.obj \
 		debug\Nixin_Font.obj \
-		debug\Nixin_FrameBuffer.obj \
 		debug\Nixin_GameTime.obj \
 		debug\Nixin_Image.obj \
 		debug\Nixin_Keyboard.obj \
@@ -114,6 +122,18 @@ OBJECTS       = debug\main.obj \
 		debug\Nixin_Renderbuffer.obj \
 		debug\Nixin_FramebufferAttachment.obj \
 		debug\mainwindowtest.obj \
+		debug\Nixin_Debug.obj \
+		debug\Nixin_Framebuffer.obj \
+		debug\Nixin_TransformFeedbackBinding.obj \
+		debug\Nixin_TransformFeedback.obj \
+		debug\Nixin_TextureBase.obj \
+		debug\Nixin_Texture1DImmutable.obj \
+		debug\Nixin_Texture1DArrayImmutable.obj \
+		debug\Nixin_ShaderFile.obj \
+		debug\Nixin_UniformBase.obj \
+		debug\Nixin_UniformValues.obj \
+		debug\Nixin_Uniform.obj \
+		debug\Nixin_VertexAttribute.obj \
 		debug\moc_Nixin_QtOpenGLWindow.obj \
 		debug\moc_Nixin_QtOpenGLWidget.obj \
 		debug\moc_Nixin_GameWindow.obj \
@@ -220,7 +240,7 @@ dist:
 	$(ZIP) Nixin.zip $(SOURCES) $(DIST) ..\Nixin\Nixin.pro C:\Qt\5.3\msvc2013_opengl\mkspecs\features\spec_pre.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\common\shell-win32.conf C:\Qt\5.3\msvc2013_opengl\mkspecs\qconfig.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_core.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_declarative.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_declarative_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_enginio.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_enginio_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_help.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_network.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_script.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_webkit.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.3\msvc2013_opengl\mkspecs\features\qt_functions.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\qt_config.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\win32\qt_config.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\win32-msvc2013\qmake.conf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\spec_post.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\exclusive_builds.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\default_pre.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\win32\default_pre.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\resolve_config.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\default_post.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\build_pass.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\c++11.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\win32\rtti.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\precompile_header.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\warn_on.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\qt.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\resources.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\moc.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\win32\opengl.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\uic.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\win32\windows.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\testcase_targets.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\exceptions.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\yacc.prf C:\Qt\5.3\msvc2013_opengl\mkspecs\features\lex.prf ..\Nixin\Nixin.pro C:/Qt/5.3/msvc2013_opengl/lib/Qt5Widgetsd.prl C:/Qt/5.3/msvc2013_opengl/lib/Qt5Guid.prl C:/Qt/5.3/msvc2013_opengl/lib/Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\Nixin_Camera.obj debug\Nixin_Canvas.obj debug\Nixin_Colour.obj debug\Nixin_Debug_Output.obj debug\Nixin_Font.obj debug\Nixin_FrameBuffer.obj debug\Nixin_GameTime.obj debug\Nixin_Image.obj debug\Nixin_Keyboard.obj debug\Nixin_Material.obj debug\Nixin_Math.obj debug\Nixin_Matrix.obj debug\Nixin_Mouse.obj debug\Nixin_Point.obj debug\Nixin_Quaternion.obj debug\Nixin_Rectangle.obj debug\Nixin_ShaderProgram.obj debug\Nixin_SoundEffect.obj debug\Nixin_SoundEngine.obj debug\Nixin_SoundFile.obj debug\Nixin_SpriteBuffer.obj debug\Nixin_Texture.obj debug\Nixin_Timer.obj debug\Nixin_Utility.obj debug\Nixin_WorldObject.obj debug\Nixin_QtOpenGLWindow.obj debug\Nixin_QtOpenGLWidget.obj debug\Nixin_GameWindow.obj debug\Nixin_Application.obj debug\Nixin_GLBuffer.obj debug\Nixin_Renderbuffer.obj debug\Nixin_FramebufferAttachment.obj debug\mainwindowtest.obj debug\moc_Nixin_QtOpenGLWindow.obj debug\moc_Nixin_QtOpenGLWidget.obj debug\moc_Nixin_GameWindow.obj debug\moc_mainwindowtest.obj
+	-$(DEL_FILE) debug\main.obj debug\Nixin_Camera.obj debug\Nixin_Canvas.obj debug\Nixin_Colour.obj debug\Nixin_Font.obj debug\Nixin_GameTime.obj debug\Nixin_Image.obj debug\Nixin_Keyboard.obj debug\Nixin_Material.obj debug\Nixin_Math.obj debug\Nixin_Matrix.obj debug\Nixin_Mouse.obj debug\Nixin_Point.obj debug\Nixin_Quaternion.obj debug\Nixin_Rectangle.obj debug\Nixin_ShaderProgram.obj debug\Nixin_SoundEffect.obj debug\Nixin_SoundEngine.obj debug\Nixin_SoundFile.obj debug\Nixin_SpriteBuffer.obj debug\Nixin_Texture.obj debug\Nixin_Timer.obj debug\Nixin_Utility.obj debug\Nixin_WorldObject.obj debug\Nixin_QtOpenGLWindow.obj debug\Nixin_QtOpenGLWidget.obj debug\Nixin_GameWindow.obj debug\Nixin_Application.obj debug\Nixin_GLBuffer.obj debug\Nixin_Renderbuffer.obj debug\Nixin_FramebufferAttachment.obj debug\mainwindowtest.obj debug\Nixin_Debug.obj debug\Nixin_Framebuffer.obj debug\Nixin_TransformFeedbackBinding.obj debug\Nixin_TransformFeedback.obj debug\Nixin_TextureBase.obj debug\Nixin_Texture1DImmutable.obj debug\Nixin_Texture1DArrayImmutable.obj debug\Nixin_ShaderFile.obj debug\Nixin_UniformBase.obj debug\Nixin_UniformValues.obj debug\Nixin_Uniform.obj debug\Nixin_VertexAttribute.obj debug\moc_Nixin_QtOpenGLWindow.obj debug\moc_Nixin_QtOpenGLWidget.obj debug\moc_Nixin_GameWindow.obj debug\moc_mainwindowtest.obj
 	-$(DEL_FILE) debug\Nixin.exp debug\Nixin.ilk debug\Nixin.idb debug\Nixin.exe.embed.manifest debug\Nixin.exe_manifest.rc debug\Nixin.exe_manifest.res
 
 distclean: clean 
@@ -540,7 +560,7 @@ debug\moc_Nixin_QtOpenGLWindow.cpp: ..\Nixin\Nixin_Types.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
 		..\Nixin\Nixin_QtOpenGLWindow.h
-	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/Projects/NixinEngine/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_QtOpenGLWindow.h -o debug\moc_Nixin_QtOpenGLWindow.cpp
+	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/GitHub/Nixin/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_QtOpenGLWindow.h -o debug\moc_Nixin_QtOpenGLWindow.cpp
 
 debug\moc_Nixin_QtOpenGLWidget.cpp: C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QWidget \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qwidget.h \
@@ -854,19 +874,24 @@ debug\moc_Nixin_QtOpenGLWidget.cpp: C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_QtOpenGLWidget.h
-	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/Projects/NixinEngine/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_QtOpenGLWidget.h -o debug\moc_Nixin_QtOpenGLWidget.cpp
+	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/GitHub/Nixin/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_QtOpenGLWidget.h -o debug\moc_Nixin_QtOpenGLWidget.cpp
 
 debug\moc_Nixin_GameWindow.cpp: ..\Nixin\Nixin_QtOpenGLWindow.h \
 		..\Nixin\Nixin_Types.h \
@@ -1176,19 +1201,24 @@ debug\moc_Nixin_GameWindow.cpp: ..\Nixin\Nixin_QtOpenGLWindow.h \
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_GameWindow.h
-	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/Projects/NixinEngine/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_GameWindow.h -o debug\moc_Nixin_GameWindow.cpp
+	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/GitHub/Nixin/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\Nixin_GameWindow.h -o debug\moc_Nixin_GameWindow.cpp
 
 debug\moc_mainwindowtest.cpp: C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QMainWindow \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qmainwindow.h \
@@ -1504,19 +1534,24 @@ debug\moc_mainwindowtest.cpp: C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QMainW
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\mainwindowtest.h
-	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/Projects/NixinEngine/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\mainwindowtest.h -o debug\moc_mainwindowtest.cpp
+	C:\Qt\5.3\msvc2013_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/5.3/msvc2013_opengl/mkspecs/win32-msvc2013 -IC:/Users/Ben/Documents/GitHub/Nixin/Nixin -IC:/Qt/5.3/msvc2013_opengl/include -IC:/Qt/5.3/msvc2013_opengl/include/QtWidgets -IC:/Qt/5.3/msvc2013_opengl/include/QtGui -IC:/Qt/5.3/msvc2013_opengl/include/QtCore -I. ..\Nixin\mainwindowtest.h -o debug\moc_mainwindowtest.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1848,16 +1883,21 @@ debug\main.obj: ..\Nixin\main.cpp ..\Nixin\Nixin_Application.h \
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_QtOpenGLWidget.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QWidget \
@@ -1881,7 +1921,10 @@ debug\main.obj: ..\Nixin\main.cpp ..\Nixin\Nixin_Application.h \
 		..\Nixin\mainwindowtest.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QMainWindow \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qmainwindow.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qtabwidget.h
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qtabwidget.h \
+		..\Nixin\Nixin_TransformFeedback.h \
+		..\Nixin\Nixin_TransformFeedbackBinding.h \
+		..\Nixin\Nixin_Utility.h
 
 debug\Nixin_Camera.obj: ..\Nixin\Nixin_Camera.cpp ..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Point.h \
@@ -1894,8 +1937,11 @@ debug\Nixin_Camera.obj: ..\Nixin\Nixin_Camera.cpp ..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Vertex.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -1924,6 +1970,15 @@ debug\Nixin_Camera.obj: ..\Nixin\Nixin_Camera.cpp ..\Nixin\Nixin_Camera.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -1935,14 +1990,9 @@ debug\Nixin_Camera.obj: ..\Nixin\Nixin_Camera.cpp ..\Nixin\Nixin_Camera.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -1953,18 +2003,16 @@ debug\Nixin_Camera.obj: ..\Nixin\Nixin_Camera.cpp ..\Nixin\Nixin_Camera.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		..\Nixin\Nixin_SpriteBuffer.h
 
 debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
@@ -1973,8 +2021,12 @@ debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -2003,6 +2055,15 @@ debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -2014,14 +2075,9 @@ debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -2032,22 +2088,19 @@ debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_FrameBuffer.h \
 		..\Nixin\Nixin_Renderbuffer.h \
@@ -2056,70 +2109,6 @@ debug\Nixin_Canvas.obj: ..\Nixin\Nixin_Canvas.cpp ..\Nixin\Nixin_Canvas.h \
 		..\Nixin\Nixin_Math.h
 
 debug\Nixin_Colour.obj: ..\Nixin\Nixin_Colour.cpp ..\Nixin\Nixin_Colour.h
-
-debug\Nixin_Debug_Output.obj: ..\Nixin\Nixin_Debug_Output.cpp ..\Nixin\Nixin_Debug_Output.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h
 
 debug\Nixin_Font.obj: ..\Nixin\Nixin_Font.cpp ..\Nixin\Includes\Include\ft2build.h \
 		..\Nixin\Includes\Include\config\ftheader.h \
@@ -2200,87 +2189,15 @@ debug\Nixin_Font.obj: ..\Nixin\Nixin_Font.cpp ..\Nixin\Includes\Include\ft2build
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
 		..\Nixin\Nixin_Utility.h \
 		..\Nixin\Nixin_ShaderProgram.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
-		..\Nixin\Nixin_Debug_Output.h \
 		..\Nixin\Nixin_Memory_Utility.h
-
-debug\Nixin_FrameBuffer.obj: ..\Nixin\Nixin_FrameBuffer.cpp ..\Nixin\Nixin_FrameBuffer.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Colour.h \
-		..\Nixin\Nixin_Point.h \
-		..\Nixin\Nixin_Matrix.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		..\Nixin\Nixin_Renderbuffer.h \
-		..\Nixin\Nixin_FramebufferAttachment.h \
-		..\Nixin\Nixin_Debug_Output.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
 
 debug\Nixin_GameTime.obj: ..\Nixin\Nixin_GameTime.cpp ..\Nixin\Nixin_GameTime.h \
 		..\Nixin\Nixin_Timer.h
@@ -2290,7 +2207,7 @@ debug\Nixin_Image.obj: ..\Nixin\Nixin_Image.cpp ..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -2434,7 +2351,7 @@ debug\Nixin_Math.obj: ..\Nixin\Nixin_Math.cpp ..\Nixin\Nixin_Math.h
 debug\Nixin_Matrix.obj: ..\Nixin\Nixin_Matrix.cpp ..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Point.h \
 		..\Nixin\Nixin_Math.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -2505,8 +2422,12 @@ debug\Nixin_Mouse.obj: ..\Nixin\Nixin_Mouse.cpp ..\Nixin\Nixin_Mouse.h \
 		..\Nixin\Nixin_Vertex.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -2535,6 +2456,15 @@ debug\Nixin_Mouse.obj: ..\Nixin\Nixin_Mouse.cpp ..\Nixin\Nixin_Mouse.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -2546,14 +2476,9 @@ debug\Nixin_Mouse.obj: ..\Nixin\Nixin_Mouse.cpp ..\Nixin\Nixin_Mouse.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -2564,23 +2489,263 @@ debug\Nixin_Mouse.obj: ..\Nixin\Nixin_Mouse.cpp ..\Nixin\Nixin_Mouse.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
-		..\Nixin\Nixin_SpriteBuffer.h
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_SpriteBuffer.h \
+		..\Nixin\Nixin_GameWindow.h \
+		..\Nixin\Nixin_QtOpenGLWindow.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QWindow \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qwindow.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QEvent \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QMargins \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmargins.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QRect \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrect.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsize.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpoint.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurface.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qicon.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpixmap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qcolor.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qrgb.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qdatastream.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiodevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qregexp.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qshareddata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qimage.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtransform.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qmatrix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpolygon.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvector.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qregion.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qline.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpainterpath.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qcursor.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QtGui \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QtGuiDepends \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QtCore \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QtCoreDepends \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstractanimation.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qanimationgroup.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qparallelanimationgroup.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpauseanimation.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpropertyanimation.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvariantanimation.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qeasingcurve.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvariant.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qdebug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtextstream.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlocale.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qset.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsequentialanimationgroup.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtextcodec.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qendian.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlibraryinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qdatetime.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbuffer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qdir.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfileinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfile.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfiledevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qdiriterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfileselector.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QStringList \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfilesystemwatcher.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlockfile.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qloggingcategory.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocess.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qresource.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsavefile.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsettings.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstandardpaths.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtemporarydir.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtemporaryfile.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qurl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qurlquery.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstractproxymodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qidentityproxymodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsortfilterproxymodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringlistmodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qjsonarray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qjsonvalue.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qjsondocument.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qjsonobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstracteventdispatcher.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qeventloop.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstractnativeeventfilter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasictimer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmath.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetaobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmimedata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectcleanuphandler.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsharedmemory.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsignalmapper.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsocketnotifier.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemsemaphore.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtimer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtranslator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qwineventnotifier.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmimedatabase.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmimetype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfactoryinterface.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlibrary.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qplugin.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpluginloader.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\quuid.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstractstate.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qabstracttransition.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qeventtransition.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfinalstate.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhistorystate.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsignaltransition.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstate.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstatemachine.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qexception.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfuture.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfutureinterface.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrunnable.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qresultstore.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfuturesynchronizer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfuturewatcher.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qreadwritelock.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsemaphore.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qthread.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qthreadpool.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qthreadstorage.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qwaitcondition.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydataops.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydatapointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbitarray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearraymatcher.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcache.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcollator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcommandlineoption.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcommandlineparser.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcryptographichash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qelapsedtimer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlinkedlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmessageauthenticationcode.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qqueue.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qregularexpression.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedvaluerollback.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstack.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtextboundaryfinder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtimeline.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtimezone.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qxmlstream.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtcoreversion.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qaccessible.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qkeysequence.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qvector2d.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtouchdevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qaccessiblebridge.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qaccessibleobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qaccessibleplugin.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qbitmap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qiconengine.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qiconengineplugin.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qimageiohandler.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qimagereader.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qimagewriter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qmovie.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpicture.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpictureformatplugin.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpixmapcache.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qstandarditemmodel.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qbrush.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qfont.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qclipboard.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qdrag.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qgenericplugin.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qgenericpluginfactory.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qguiapplication.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qinputmethod.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qoffscreensurface.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpalette.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qscreen.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QList \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QSize \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QSizeF \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QTransform \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsessionmanager.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qstylehints.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qgenericmatrix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qmatrix4x4.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qvector3d.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qvector4d.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qquaternion.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglbuffer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengldebug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglframebufferobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglpaintdevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglpixeltransferoptions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QSharedDataPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglshaderprogram.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengltexture.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengltimerquery.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglvertexarrayobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qbackingstore.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpagedpaintdevice.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpagelayout.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpagesize.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpaintengine.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpainter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextoption.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpen.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qfontinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qfontmetrics.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qpdfwriter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextlayout.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextformat.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qglyphrun.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qrawfont.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qfontdatabase.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextcursor.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextdocument.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qstatictext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsyntaxhighlighter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextdocumentfragment.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextdocumentwriter.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtextlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtexttable.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qdesktopservices.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qvalidator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qtguiversion.h \
+		..\Nixin\Nixin_GameTime.h \
+		..\Nixin\Nixin_Timer.h \
+		..\Nixin\Nixin_SoundEngine.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QApplication \
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qapplication.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qwidget.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\qsizepolicy.h
 
 debug\Nixin_Point.obj: ..\Nixin\Nixin_Point.cpp ..\Nixin\Nixin_Point.h \
 		..\Nixin\Nixin_Matrix.h \
@@ -2588,8 +2753,12 @@ debug\Nixin_Point.obj: ..\Nixin\Nixin_Point.cpp ..\Nixin\Nixin_Point.h \
 		..\Nixin\Nixin_Canvas.h \
 		..\Nixin\Nixin_Vertex.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -2618,6 +2787,15 @@ debug\Nixin_Point.obj: ..\Nixin\Nixin_Point.cpp ..\Nixin\Nixin_Point.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -2629,14 +2807,9 @@ debug\Nixin_Point.obj: ..\Nixin\Nixin_Point.cpp ..\Nixin\Nixin_Point.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -2647,22 +2820,19 @@ debug\Nixin_Point.obj: ..\Nixin\Nixin_Point.cpp ..\Nixin\Nixin_Point.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_Math.h
 
@@ -2676,8 +2846,15 @@ debug\Nixin_Rectangle.obj: ..\Nixin\Nixin_Rectangle.cpp ..\Nixin\Nixin_Rectangle
 		..\Nixin\Nixin_Matrix.h
 
 debug\Nixin_ShaderProgram.obj: ..\Nixin\Nixin_ShaderProgram.cpp ..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -2706,6 +2883,15 @@ debug\Nixin_ShaderProgram.obj: ..\Nixin\Nixin_ShaderProgram.cpp ..\Nixin\Nixin_S
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -2717,14 +2903,9 @@ debug\Nixin_ShaderProgram.obj: ..\Nixin\Nixin_ShaderProgram.cpp ..\Nixin\Nixin_S
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -2735,28 +2916,22 @@ debug\Nixin_ShaderProgram.obj: ..\Nixin\Nixin_ShaderProgram.cpp ..\Nixin\Nixin_S
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Matrix.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Colour.h \
-		..\Nixin\Nixin_Point.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Utility.h \
-		..\Nixin\Nixin_Debug_Output.h
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
 
 debug\Nixin_SoundEffect.obj: ..\Nixin\Nixin_SoundEffect.cpp ..\Nixin\Nixin_SoundEffect.h \
 		..\Nixin\Includes\Include\AL\al.h \
 		..\Nixin\Nixin_SoundFile.h
 
 debug\Nixin_SoundEngine.obj: ..\Nixin\Nixin_SoundEngine.cpp ..\Nixin\Nixin_SoundEngine.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -2822,7 +2997,7 @@ debug\Nixin_SoundEngine.obj: ..\Nixin\Nixin_SoundEngine.cpp ..\Nixin\Nixin_Sound
 		..\Nixin\Includes\Include\AL\alc.h
 
 debug\Nixin_SoundFile.obj: ..\Nixin\Nixin_SoundFile.cpp ..\Nixin\Nixin_SoundFile.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -2893,7 +3068,7 @@ debug\Nixin_SpriteBuffer.obj: ..\Nixin\Nixin_SpriteBuffer.cpp ..\Nixin\Nixin_Spr
 		..\Nixin\Nixin_Point.h \
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -2964,6 +3139,11 @@ debug\Nixin_SpriteBuffer.obj: ..\Nixin\Nixin_SpriteBuffer.cpp ..\Nixin\Nixin_Spr
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_ShaderProgram.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Canvas.h \
 		..\Nixin\Nixin_Vertex.h \
 		..\Nixin\Nixin_Camera.h \
@@ -3043,16 +3223,26 @@ debug\Nixin_Texture.obj: ..\Nixin\Nixin_Texture.cpp ..\Nixin\Nixin_Texture.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Utility.h
 
 debug\Nixin_Timer.obj: ..\Nixin\Nixin_Timer.cpp ..\Nixin\Nixin_Timer.h
 
 debug\Nixin_Utility.obj: ..\Nixin\Nixin_Utility.cpp ..\Nixin\Nixin_Utility.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
@@ -3081,6 +3271,15 @@ debug\Nixin_Utility.obj: ..\Nixin\Nixin_Utility.cpp ..\Nixin\Nixin_Utility.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
@@ -3092,14 +3291,9 @@ debug\Nixin_Utility.obj: ..\Nixin\Nixin_Utility.cpp ..\Nixin\Nixin_Utility.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
@@ -3110,20 +3304,14 @@ debug\Nixin_Utility.obj: ..\Nixin\Nixin_Utility.cpp ..\Nixin\Nixin_Utility.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
-		..\Nixin\Nixin_Matrix.h \
-		..\Nixin\Nixin_Texture.h \
-		..\Nixin\Nixin_Colour.h \
-		..\Nixin\Nixin_Point.h \
-		..\Nixin\Nixin_Image.h \
-		..\Nixin\Nixin_Rectangle.h \
-		..\Nixin\Nixin_Types.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
-		..\Nixin\Nixin_Debug_Output.h
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
 
 debug\Nixin_WorldObject.obj: ..\Nixin\Nixin_WorldObject.cpp ..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Point.h \
@@ -3748,16 +3936,21 @@ debug\Nixin_QtOpenGLWidget.obj: ..\Nixin\Nixin_QtOpenGLWidget.cpp ..\Nixin\Nixin
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h
 
 debug\Nixin_GameWindow.obj: ..\Nixin\Nixin_GameWindow.cpp ..\Nixin\Nixin_GameWindow.h \
@@ -4069,23 +4262,29 @@ debug\Nixin_GameWindow.obj: ..\Nixin\Nixin_GameWindow.cpp ..\Nixin\Nixin_GameWin
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		..\Nixin\Nixin_Application.h \
-		..\Nixin\Nixin_Utility.h
+		..\Nixin\Nixin_Utility.h \
+		..\Nixin\Nixin_Mouse.h
 
 debug\Nixin_Application.obj: ..\Nixin\Nixin_Application.cpp ..\Nixin\Nixin_Application.h \
 		..\Nixin\Nixin_SoundEngine.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -4153,7 +4352,7 @@ debug\Nixin_Application.obj: ..\Nixin\Nixin_Application.cpp ..\Nixin\Nixin_Appli
 		..\Nixin\Includes\Include\FreeImage.h
 
 debug\Nixin_GLBuffer.obj: ..\Nixin\Nixin_GLBuffer.cpp ..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
@@ -4289,7 +4488,7 @@ debug\Nixin_Renderbuffer.obj: ..\Nixin\Nixin_Renderbuffer.cpp ..\Nixin\Nixin_Ren
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Rectangle.h \
 		..\Nixin\Nixin_Types.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
 
@@ -4610,19 +4809,883 @@ debug\mainwindowtest.obj: ..\Nixin\mainwindowtest.cpp ..\Nixin\mainwindowtest.h 
 		..\Nixin\Nixin_Matrix.h \
 		..\Nixin\Nixin_Colour.h \
 		..\Nixin\Nixin_ShaderProgram.h \
-		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_Texture.h \
 		..\Nixin\Nixin_Image.h \
 		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h \
 		..\Nixin\Nixin_Camera.h \
 		..\Nixin\Nixin_Quaternion.h \
 		..\Nixin\Nixin_WorldObject.h \
 		..\Nixin\Nixin_Font.h \
 		..\Nixin\Nixin_GLBuffer.h \
-		..\Nixin\Nixin_Debug_Output.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
 		..\Nixin\Nixin_SpriteBuffer.h \
 		ui_mainwindowtest.h \
 		C:\Qt\5.3\msvc2013_opengl\include\QtWidgets\QWidget
+
+debug\Nixin_Debug.obj: ..\Nixin\Nixin_Debug.cpp ..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h
+
+debug\Nixin_Framebuffer.obj: ..\Nixin\Nixin_Framebuffer.cpp ..\Nixin\Nixin_Framebuffer.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_Renderbuffer.h \
+		..\Nixin\Nixin_FramebufferAttachment.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
+
+debug\Nixin_TransformFeedbackBinding.obj: ..\Nixin\Nixin_TransformFeedbackBinding.cpp ..\Nixin\Nixin_TransformFeedbackBinding.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		..\Nixin\Nixin_GLBuffer.h \
+		..\Nixin\Nixin_Debug.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions
+
+debug\Nixin_TransformFeedback.obj: ..\Nixin\Nixin_TransformFeedback.cpp ..\Nixin\Nixin_TransformFeedback.h \
+		..\Nixin\Nixin_TransformFeedbackBinding.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		..\Nixin\Nixin_GLBuffer.h \
+		..\Nixin\Nixin_Debug.h
+
+debug\Nixin_TextureBase.obj: ..\Nixin\Nixin_TextureBase.cpp ..\Nixin\Nixin_TextureBase.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h
+
+debug\Nixin_Texture1DImmutable.obj: ..\Nixin\Nixin_Texture1DImmutable.cpp ..\Nixin\Nixin_Texture1DImmutable.h \
+		..\Nixin\Nixin_TextureBase.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
+
+debug\Nixin_Texture1DArrayImmutable.obj: ..\Nixin\Nixin_Texture1DArrayImmutable.cpp ..\Nixin\Nixin_Texture1DArrayImmutable.h \
+		..\Nixin\Nixin_TextureBase.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h
+
+debug\Nixin_ShaderFile.obj: ..\Nixin\Nixin_ShaderFile.cpp ..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_Types.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_Debug.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions.h \
+		..\Nixin\Nixin_Utility.h \
+		..\Nixin\Nixin_ShaderProgram.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h
+
+debug\Nixin_UniformBase.obj: ..\Nixin\Nixin_UniformBase.cpp ..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_ShaderProgram.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformValues.h
+
+debug\Nixin_UniformValues.obj: ..\Nixin\Nixin_UniformValues.cpp ..\Nixin\Nixin_UniformValues.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h
+
+debug\Nixin_Uniform.obj: ..\Nixin\Nixin_Uniform.cpp ..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Types.h \
+		..\Nixin\Nixin_UniformBase.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_UniformValues.h
+
+debug\Nixin_VertexAttribute.obj: ..\Nixin\Nixin_VertexAttribute.cpp ..\Nixin\Nixin_VertexAttribute.h \
+		..\Nixin\Nixin_Types.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLFunctions_4_3_Core \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglfunctions_4_3_core.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobal.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qconfig.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qfeatures.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qtypetraits.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qsysinfo.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlogging.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qflags.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmutex.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnumeric.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QOpenGLVersionFunctions \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglversionfunctions.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qhash.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qchar.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qiterator.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qlist.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qalgorithms.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qrefcount.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qpair.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qt_windows.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopengles2ext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qopenglcontext.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qnamespace.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QObject \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstring.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qbytearray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qarraydata.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcoreevent.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qmetatype.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qisenum.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\qobject_impl.h \
+		C:\Qt\5.3\msvc2013_opengl\include\QtCore\QScopedPointer \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\QSurfaceFormat \
+		C:\Qt\5.3\msvc2013_opengl\include\QtGui\qsurfaceformat.h \
+		..\Nixin\Nixin_ShaderProgram.h \
+		..\Nixin\Nixin_Matrix.h \
+		..\Nixin\Nixin_Texture.h \
+		..\Nixin\Nixin_Colour.h \
+		..\Nixin\Nixin_Point.h \
+		..\Nixin\Nixin_Image.h \
+		..\Nixin\Nixin_Rectangle.h \
+		..\Nixin\Nixin_ShaderFile.h \
+		..\Nixin\Nixin_Uniform.h \
+		..\Nixin\Nixin_UniformBase.h \
+		..\Nixin\Nixin_UniformValues.h
 
 debug\moc_Nixin_QtOpenGLWindow.obj: debug\moc_Nixin_QtOpenGLWindow.cpp 
 

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 
 
 #include "Nixin_ShaderProgram.h"
@@ -99,6 +100,8 @@ namespace Nixin
         if( static_cast<GLboolean>( success ) == GL_TRUE )
         {
             linked = true;
+            GeneratorUniforms();
+            AddMetaData();
             return true;
         }
         else
@@ -123,6 +126,37 @@ namespace Nixin
     void ShaderProgram::AddFile( const ShaderFile& shaderFile )
     {
         gl->glAttachShader( id, shaderFile.GetID() );
+
+        for( const Field& field : shaderFile.GetAttributes() )
+        {
+            std::vector<Field>::iterator  result = std::find_if( attributeInfo.begin(), attributeInfo.end(), [&]( const Field& f ){ return f.name == field.name; } );
+            if( result != attributeInfo.end() )
+            {
+                result->count++;
+            }
+            else
+            {
+                attributeInfo.push_back( field );
+            }
+        }
+
+
+        // Add every uniform.
+        for( const Field& field : shaderFile.GetUniforms() )
+        {
+            std::vector<Field>::iterator  result = std::find_if( uniformInfo.begin(), uniformInfo.end(), [&]( const Field& f ){ return f.name == field.name; } );
+            if( result != uniformInfo.end() )
+            {
+                result->count++;
+            }
+            else
+            {
+                uniformInfo.push_back( field );
+            }
+        }
+
+        // Add every type.
+        types.insert( shaderFile.GetUniformTypes().begin(), shaderFile.GetUniformTypes().end() );
     }
 
 
@@ -130,9 +164,75 @@ namespace Nixin
     //
     // RemoveFile
     //
-    void ShaderProgram::RemoveFile( const ShaderFile &shaderFile )
+    void ShaderProgram::RemoveFile( const ShaderFile& shaderFile )
     {
         gl->glDetachShader( id, shaderFile.GetID() );
+
+        for( const Field& field : shaderFile.GetAttributes() )
+        {
+            std::vector<Field>::iterator  result = std::find_if( attributeInfo.begin(), attributeInfo.end(), [&]( const Field& f ){ return f.name == field.name; } );
+            if( result != attributeInfo.end() )
+            {
+                if( result->count > 1 )
+                {
+                    result->count--;
+                }
+                else
+                {
+                    attributeInfo.erase( result );
+                }
+            }
+        }
+    }
+
+
+
+    //
+    // EnableAttribute
+    //
+    void ShaderProgram::EnableAttribute( const std::string& name ) const
+    {
+        gl->glEnableVertexAttribArray( attributes.at( name ).GetID() );
+    }
+
+
+
+    //
+    // EnableAllAttributes
+    //
+    void ShaderProgram::EnableAllAttributes() const
+    {
+        std::for_each( attributes.begin(), attributes.end(), [&]( const std::pair<std::string, VertexAttribute>& pair ){ gl->glEnableVertexAttribArray( pair.second.GetID() ); } );
+    }
+
+
+
+    //
+    // DisableAttribute
+    //
+    void ShaderProgram::DisableAttribute( const std::string& name ) const
+    {
+        gl->glDisableVertexAttribArray( attributes.at( name ).GetID() );
+    }
+
+
+
+    //
+    // DisableAllAttributes
+    //
+    void ShaderProgram::DisableAllAttributes() const
+    {
+        std::for_each( attributes.begin(), attributes.end(), [&]( const std::pair<std::string, VertexAttribute>& pair ){ gl->glDisableVertexAttribArray( pair.second.GetID() ); } );
+    }
+
+
+
+    //
+    // SetAttribute
+    //
+    void ShaderProgram::SetAttribute( const std::string& name, int size, GLboolean normalised, GLenum type, int stride, int offset )
+    {
+        attributes[name].SetValue( size, type, normalised, stride, offset );
     }
 
 
@@ -158,12 +258,109 @@ namespace Nixin
 
 
     //
-    // GenerateUniforms
+    // AddMetaData
     //
-    void ShaderProgram::GeneratorUniforms()
+    void ShaderProgram::AddMetaData()
     {
+        // Files might have been added / removed. Forget all meta data.
+        attributes.clear();
         uniforms.clear();
 
+        // Add all attributes.
+        for( const Field& field : attributeInfo )
+        {
+            attributes[field.name] = VertexAttribute( field.name, this );
+        }
 
+        EnableAllAttributes();
+
+
+        for( const Field& field : uniformInfo )
+        {
+            auto    itr = types.find( field.type );
+
+            if( itr == types.end() )
+            {
+                AddUniform( field.name, field.type );
+            }
+            else
+            {
+                AddUniformStruct( field.name, itr->second );
+            }
+        }
+
+        for( const auto& temp : uniforms )
+        {
+           qDebug( temp.second.get()->GetName().c_str() );
+        }
+    }
+
+
+
+    //
+    // AddUniformStruct
+    //
+    void ShaderProgram::AddUniformStruct( const std::string& name, const UniformType& type )
+    {
+        for( const Field& field : type.members )
+        {
+            auto    itr = types.find( field.type );
+            if( itr == types.end() )
+            {
+                AddUniform( name + "." + field.name, field.type );
+            }
+            else
+            {
+                AddUniformStruct( name + "." + itr->second.name, itr->second );
+            }
+        }
+    }
+
+
+
+    //
+    // AddUniform
+    //
+    void ShaderProgram::AddUniform( const std::string& name, const std::string& type )
+    {
+        size_t          typeValue = std::accumulate( type.begin(), type.end(), 0 );
+
+        // It's a matrix.
+        if( type.size() > 3 && type[0] == 'm' && type[1] == 'a' && type[2] == 't' )
+        {
+            uniforms[name] = std::unique_ptr<Uniform<UniformMatrix>>( new Uniform<UniformMatrix>( name, this ) );
+        }
+        else
+        {
+            switch( typeValue )
+            {
+                case 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2f>>( new Uniform<Uniform2f>( name, this ) );
+                case 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) );
+                case 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) );
+
+                case 'b' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) );
+                case 'b' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) );
+                case 'b' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) );
+
+                case 'i' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) );
+                case 'i' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) );
+                case 'i' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) );
+
+                case 'u' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2ui>>( new Uniform<Uniform2ui>( name, this ) );
+                case 'u' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3ui>>( new Uniform<Uniform3ui>( name, this ) );
+                case 'u' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4ui>>( new Uniform<Uniform4ui>( name, this ) );
+
+                case 'd' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) );
+                case 'd' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) );
+
+                case 'b' + 'o' + 'o' + 'l':                                 uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) );
+                case 'i' + 'n' + 't':                                       uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) );
+                case 'f' + 'l' + 'o' + 'a' + 't':                           uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) );
+                case 'd' + 'o' + 'u' + 'b' + 'l' + 'e':                     uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) );
+                case 's' + 'a' + 'm' + 'p' + 'l' + 'e' + 'r' + '2' + 'D':   uniforms[name] = std::unique_ptr<Uniform<UniformSampler2D>>( new Uniform<UniformSampler2D>( name, this ) );
+
+                default: uniforms[name] = std::unique_ptr<Uniform<Uniform2f>>( new Uniform<Uniform2f>( name, this ) );
+            }
+        }
     }
 }

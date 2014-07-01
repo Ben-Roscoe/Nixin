@@ -393,6 +393,22 @@ namespace Nixin
 
 
     };
+
+
+
+    class UniformSampler2D
+    {
+    public:
+
+        UniformSampler2D();
+        UniformSampler2D( GLuint v, GLenum textureLocation, GLboolean bound );
+
+
+        GLuint             value                            = 0;
+        GLenum             location                         = 0;
+        GLboolean          isBound                          = false;
+    };
+
 }
 
 

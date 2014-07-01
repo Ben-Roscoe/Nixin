@@ -62,7 +62,7 @@ namespace Nixin
         gameTime.Update();
     }
 
-#include "Nixin_Texture1DImmutable.h"
+
 
     //
     // Draw
@@ -72,7 +72,7 @@ namespace Nixin
         canvas.ClearBuffer( true, false, false );
 
         canvas.BeginSpriteDrawing();
-        canvas.DrawSprite( tex, Rectangle( pos, 200, 200 ), Colour::White );
+        canvas.DrawSprite( tex, Rectangle( 50, 50, 200, 200 ), Colour::White );
         canvas.EndSpriteDrawing();
 
         SwapBuffers();

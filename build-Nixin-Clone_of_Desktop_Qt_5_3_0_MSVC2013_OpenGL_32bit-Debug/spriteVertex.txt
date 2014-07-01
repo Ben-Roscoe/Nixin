@@ -11,8 +11,6 @@ out vec4				fragTint;
 uniform mat4			projection;
 
 
-
-
 //
 // main
 //

@@ -504,9 +504,8 @@ namespace Nixin
     //
     // UniformMatrix
     //
-    UniformMatrix::UniformMatrix( const Matrix& v )
+    UniformMatrix::UniformMatrix( const Matrix& v ) : matrix( v )
     {
-        matrix = v;
     }
 
 
@@ -527,6 +526,30 @@ namespace Nixin
     {
         matrices    = v;
         count       = matrixCount;
+    }
+
+
+
+    //
+    // UniformSampler2D
+    //
+    UniformSampler2D::UniformSampler2D()
+    {
+        value       = 0;
+        location    = 0;
+        isBound     = true;
+    }
+
+
+
+    //
+    // UniformSampler2D
+    //
+    UniformSampler2D::UniformSampler2D( GLuint v, GLenum textureLocation, GLboolean bound )
+    {
+        value       = v;
+        location    = textureLocation;
+        isBound     = bound;
     }
 
 }

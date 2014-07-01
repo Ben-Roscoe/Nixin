@@ -184,4 +184,14 @@ namespace Nixin
     {
         return height;
     }
+
+
+
+    //
+    // SetStorage
+    //
+    void Texture1DArrayImmutable::SetStorage() const
+    {
+        gl->glTexStorage2D( target, levels, internalFormat, width, height );
+    }
 }

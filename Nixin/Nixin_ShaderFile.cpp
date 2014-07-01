@@ -3,6 +3,7 @@
 #include "Nixin_Utility.h"
 
 #include <locale>
+#include <numeric>
 
 
 namespace Nixin
@@ -130,6 +131,10 @@ namespace Nixin
             return false;
         }
 
+        // Store a temporary pointer so we can pass a char** to OpenGL.
+        const char*         sourcePtr = source.c_str();
+
+        gl->glShaderSource( id, 1, &sourcePtr, nullptr );
         gl->glCompileShader( id );
 
         GLint       success = 0;
@@ -137,6 +142,7 @@ namespace Nixin
         if( static_cast<GLboolean>( success ) == GL_TRUE )
         {
             compiled = true;
+            GenerateMetaData();
             return true;
         }
         else
@@ -151,6 +157,36 @@ namespace Nixin
             Debug::Write( "GLSL Compilation Error: %s", errorMessage.c_str() );
             return false;
         }
+    }
+
+
+
+    //
+    // GetAttributes
+    //
+    const std::vector<Field>& ShaderFile::GetAttributes() const
+    {
+        return attributeFields;
+    }
+
+
+
+    //
+    // GetUniforms
+    //
+    const std::vector<Field> &ShaderFile::GetUniforms() const
+    {
+        return uniformFields;
+    }
+
+
+
+    //
+    //
+    //
+    const std::map<std::string, UniformType>& ShaderFile::GetUniformTypes() const
+    {
+        return uniformTypes;
     }
 
 
@@ -249,48 +285,131 @@ namespace Nixin
     //
     void ShaderFile::GenerateMetaData()
     {
+        // The source might have changed, so forget all we know about this shader.
         uniformFields.clear();
         uniformTypes.clear();
 
+        // The last place the "in" keyword was found.
+        size_t       last = 0;
 
-        // Read every type.
-        size_t              pos   = 0;
-        size_t              end   = 0;
-
-
-        pos   = source.find( "{", source.find( "struct", pos ) );
-        end   = source.find( ";", source.find( "}", pos ) );
-
-        std::string structDefinition  = source.substr( pos, end - pos );
-
-        while( pos != end )
+        // Find all in vertex attributes and extract their name and type from the source.
+        while( true )
         {
-            std::string field             = structDefinition.substr( pos + 1, structDefinition.find( ";", pos ) - pos );
+            last                    = source.find( "in", last );
 
-            for( size_t i = field.begin(); std::isspace( field[i], std::locale( "C" ) ); i++ )
+            // Only accept "in"s that are adjacent to either a whitespace or a semi-colon, otherwise we may mistake
+            // part of an identifier for the "in" keyword.
+            if( last != source.npos )
             {
-                field.erase( i );
+                if( std::isspace( source[last + 2], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
+                {
+                    // Get the line.
+                    std::string  line       = source.substr( last, source.find( ';', last ) - last );
+
+                    // Get the type.
+                    Utility::TrimToWhiteSpace( line );
+                    Utility::TrimTrailingWhiteSpace( line );
+                    std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
+
+                    // Get the name.
+                    Utility::TrimToWhiteSpace( line );
+                    Utility::TrimTrailingWhiteSpace( line );
+                    std::string  name       = line.substr( 0, line.size() );
+
+                    attributeFields.push_back( Field( name, type ) );
+                }
+            }
+            else
+            {
+                break;
             }
 
-            std::string         type = "";
-            for( size_t i = field.begin(); !std::isspace( field[i], std::locale( "C" ) ); i++ )
+            // Move past this "in" so we don't find it again.
+            last += 2;
+        }
+
+        last = 0;
+
+        while( true )
+        {
+            last                    = source.find( "struct", last );
+
+            if( last != source.npos )
             {
-                type.push_back( field[i] );
+                if( std::isspace( source[last + 6], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
+                {
+                    // Get the struct block.
+                    std::string                     structBlock       = source.substr( last, source.find( '}', last ) - last );
+                    Utility::TrimToWhiteSpace( structBlock );
+                    Utility::TrimTrailingWhiteSpace( structBlock );
+                    UniformType                     type( structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) ) );
+
+                    structBlock = structBlock.substr( structBlock.find( "{" ) + 1 );
+
+                    while( structBlock.size() > 0 )
+                    {
+                        Field           field( "", "" );
+
+                        Utility::TrimToWhiteSpace( structBlock );
+                        Utility::TrimTrailingWhiteSpace( structBlock );
+                        field.type = structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) );
+                        Utility::TrimToWhiteSpace( structBlock );
+                        Utility::TrimTrailingWhiteSpace( structBlock );
+                        field.name = structBlock.substr( 0, Utility::IndexOfNext( structBlock, ';' ) );
+                        Utility::TrimToNext( structBlock, ';' );
+
+
+                        // FIX
+                        if( structBlock.size() > 0 )
+                        {
+                            type.members.push_back( field );
+                        }
+                    }
+
+                    uniformTypes[type.name] = type;
+                }
+            }
+            else
+            {
+                break;
             }
 
-            field.erase( field.begin(), type.size() );
-            for( size_t i = field.begin(); std::isspace( field[i], std::locale( "C" ) ); i++ )
+            last += 6;
+        }
+
+
+        last = 0;
+
+        while( true )
+        {
+            last            = source.find( "uniform", last );
+
+            if( last != source.npos )
             {
-                field.erase( i );
+                if( std::isspace( source[last + 7], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
+                {
+                    // Get the line.
+                    std::string  line       = source.substr( last, source.find( ';', last ) - last );
+
+                    // Get the type.
+                    Utility::TrimToWhiteSpace( line );
+                    Utility::TrimTrailingWhiteSpace( line );
+                    std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
+
+                    // Get the name.
+                    Utility::TrimToWhiteSpace( line );
+                    Utility::TrimTrailingWhiteSpace( line );
+                    std::string  name       = line.substr( 0, line.size() );
+
+                    uniformFields.push_back( Field( name, type ) );
+                }
+            }
+            else
+            {
+                break;
             }
 
-            std::string name = "";
-            for( size_t i = field.begin(); !std::isspace( field[i], std::locale( "C" ) ); i++ )
-            {
-                name.push_back( field[i] );
-            }
-
-            pos = structDefinition.find( ";", pos ) + 1;
+            last += 7;
         }
     }
 }

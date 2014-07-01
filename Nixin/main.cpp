@@ -48,7 +48,7 @@
 //        TranslateMessage( &message );
 //        DispatchMessageA( &message );
 //    }
-	
+
 //    return message.wParam;
 //}
 
@@ -103,6 +103,7 @@
 #include "mainwindowtest.h"
 #include "Nixin_TransformFeedback.h"
 #include "Nixin_Uniform.h"
+#include "Nixin_Utility.h"
 
 
 
@@ -120,4 +121,3 @@ int main( int argc, char* argv[] )
 
     return a.exec();
 }
-

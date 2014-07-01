@@ -9,6 +9,7 @@
 
 #include <QOpenGLFunctions_4_3_Core>
 #include <functional>
+#include <memory>
 
 namespace Nixin
 {
@@ -47,6 +48,8 @@ namespace Nixin
     void    SetUniform( OpenGLFunctions* gl, GLint location, const UniformMatrix& value );
     void    SetUniform( OpenGLFunctions* gl, GLint location, const UniformMatrixv& value );
 
+    void    SetUniform( OpenGLFunctions* gl, GLint location, const UniformSampler2D& value );
+
 
     template<typename T>
     class Uniform : public UniformBase
@@ -62,7 +65,7 @@ namespace Nixin
     private:
 
 
-        T                           value;
+        T                                                        value;
 
 
     };
@@ -75,7 +78,6 @@ namespace Nixin
     template<typename T>
     Uniform<T>::Uniform( const std::string& uniformName, const ShaderProgram* uniformOwner ) : UniformBase( uniformName, uniformOwner )
     {
-        assignToShader = shaderAssignment;
     }
 
 
