@@ -16,45 +16,8 @@ namespace Nixin
     //
     TextureBase::TextureBase()
     {
+        id = OpenGLHandle( new GLuint() );
         GenTexture();
-    }
-
-
-
-    //
-    // TextureBase
-    // Derived classes are responsible for doing the actual deep copy,
-    // as different types of textures are copied differently.
-    //
-    TextureBase::TextureBase( const TextureBase& other )
-    {
-        gl      = other.gl;
-
-        if( other.id != 0 )
-        {
-            GenTexture();
-        }
-    }
-
-
-
-    //
-    // TextureBase
-    //
-    TextureBase::TextureBase( TextureBase&& other )
-    {
-        swap( *this, other );
-    }
-
-
-
-    //
-    // operator=
-    //
-    TextureBase& TextureBase::operator=( TextureBase other )
-    {
-        swap( *this, other );
-        return *this;
     }
 
 
@@ -64,23 +27,50 @@ namespace Nixin
     //
     TextureBase::~TextureBase()
     {
-        if( id != 0 )
+        if( id.unique() && id.get() != nullptr )
         {
-            gl->glDeleteTextures( 1, &id );
+            DisposeTexture();
         }
     }
 
 
 
     //
-    // swap
+    // GetID
     //
-    void swap( TextureBase& a, TextureBase& b )
+    GLuint TextureBase::GetID() const
     {
-        using std::swap;
+        return *id;
+    }
 
-        swap( a.gl, b.gl );
-        swap( a.id, b.id );
+
+
+    //
+    // IsMutable
+    //
+    bool TextureBase::IsMutable() const
+    {
+        return isMutable;
+    }
+
+
+
+    //
+    // GetLevels
+    //
+    GLint TextureBase::GetLevels() const
+    {
+        return levels;
+    }
+
+
+
+    //
+    // GetInternalFormat
+    //
+    GLenum TextureBase::GetInternalFormat() const
+    {
+        return internalFormat;
     }
 
 
@@ -94,6 +84,16 @@ namespace Nixin
     //
     void TextureBase::GenTexture()
     {
-        gl->glGenTextures( 1, &id );
+        gl->glGenTextures( 1, &( *id ) );
+    }
+
+
+
+    //
+    // DisposeTexture
+    //
+    void TextureBase::DisposeTexture() const
+    {
+        gl->glDeleteTextures( 1, &( *id ) );
     }
 }

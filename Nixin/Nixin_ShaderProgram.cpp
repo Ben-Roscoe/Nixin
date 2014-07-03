@@ -100,7 +100,6 @@ namespace Nixin
         if( static_cast<GLboolean>( success ) == GL_TRUE )
         {
             linked = true;
-            GeneratorUniforms();
             AddMetaData();
             return true;
         }
@@ -288,11 +287,6 @@ namespace Nixin
                 AddUniformStruct( field.name, itr->second );
             }
         }
-
-        for( const auto& temp : uniforms )
-        {
-           qDebug( temp.second.get()->GetName().c_str() );
-        }
     }
 
 
@@ -334,30 +328,30 @@ namespace Nixin
         {
             switch( typeValue )
             {
-                case 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2f>>( new Uniform<Uniform2f>( name, this ) );
-                case 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) );
-                case 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) );
+                case 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2f>>( new Uniform<Uniform2f>( name, this ) ); break;
+                case 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) ); break;
+                case 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) ); break;
 
-                case 'b' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) );
-                case 'b' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) );
-                case 'b' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) );
+                case 'b' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) ); break;
+                case 'b' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) ); break;
+                case 'b' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) ); break;
 
-                case 'i' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) );
-                case 'i' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) );
-                case 'i' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) );
+                case 'i' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2i>>( new Uniform<Uniform2i>( name, this ) ); break;
+                case 'i' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3i>>( new Uniform<Uniform3i>( name, this ) ); break;
+                case 'i' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4i>>( new Uniform<Uniform4i>( name, this ) ); break;
 
-                case 'u' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2ui>>( new Uniform<Uniform2ui>( name, this ) );
-                case 'u' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3ui>>( new Uniform<Uniform3ui>( name, this ) );
-                case 'u' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4ui>>( new Uniform<Uniform4ui>( name, this ) );
+                case 'u' + 'v' + 'e' + 'c' + '2': uniforms[name] = std::unique_ptr<Uniform<Uniform2ui>>( new Uniform<Uniform2ui>( name, this ) ); break;
+                case 'u' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3ui>>( new Uniform<Uniform3ui>( name, this ) ); break;
+                case 'u' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4ui>>( new Uniform<Uniform4ui>( name, this ) ); break;
 
-                case 'd' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) );
-                case 'd' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) );
+                case 'd' + 'v' + 'e' + 'c' + '3': uniforms[name] = std::unique_ptr<Uniform<Uniform3f>>( new Uniform<Uniform3f>( name, this ) ); break;
+                case 'd' + 'v' + 'e' + 'c' + '4': uniforms[name] = std::unique_ptr<Uniform<Uniform4f>>( new Uniform<Uniform4f>( name, this ) ); break;
 
-                case 'b' + 'o' + 'o' + 'l':                                 uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) );
-                case 'i' + 'n' + 't':                                       uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) );
-                case 'f' + 'l' + 'o' + 'a' + 't':                           uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) );
-                case 'd' + 'o' + 'u' + 'b' + 'l' + 'e':                     uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) );
-                case 's' + 'a' + 'm' + 'p' + 'l' + 'e' + 'r' + '2' + 'D':   uniforms[name] = std::unique_ptr<Uniform<UniformSampler2D>>( new Uniform<UniformSampler2D>( name, this ) );
+                case 'b' + 'o' + 'o' + 'l':                                 uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) ); break;
+                case 'i' + 'n' + 't':                                       uniforms[name] = std::unique_ptr<Uniform<Uniform1i>>( new Uniform<Uniform1i>( name, this ) ); break;
+                case 'f' + 'l' + 'o' + 'a' + 't':                           uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) ); break;
+                case 'd' + 'o' + 'u' + 'b' + 'l' + 'e':                     uniforms[name] = std::unique_ptr<Uniform<Uniform1f>>( new Uniform<Uniform1f>( name, this ) ); break;
+                case 's' + 'a' + 'm' + 'p' + 'l' + 'e' + 'r' + '2' + 'D':   uniforms[name] = std::unique_ptr<Uniform<UniformSampler2D>>( new Uniform<UniformSampler2D>( name, this ) ); break;
 
                 default: uniforms[name] = std::unique_ptr<Uniform<Uniform2f>>( new Uniform<Uniform2f>( name, this ) );
             }

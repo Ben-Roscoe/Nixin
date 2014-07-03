@@ -199,7 +199,7 @@ Nixin::Texture::Texture( const Texture& other )
         gl->glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, ( int )magFilterMode );
         gl->glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, ( float )wrapMode );
         gl->glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, ( float )wrapMode );
-        gl->glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp );
+        gl->glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp );
 
 		// Rebuild mipmaps if they are present in other.
 		if( mipmapped )

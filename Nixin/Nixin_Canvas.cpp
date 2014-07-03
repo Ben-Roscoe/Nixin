@@ -103,7 +103,7 @@ void Nixin::Canvas::BeginSpriteDrawing()
 //
 // DrawSprite
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( position.x, position.y, texture.GetWidth(), texture.GetHeight() ), Point( 1, 1 ), 0, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), Point( 0, 0 ), false );
 }
@@ -113,7 +113,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, c
 //
 // DrawSprite
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, Point( 1, 1 ), 0, tint, sourceBounds, Point( 0, 0 ), false );
 }
@@ -123,7 +123,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteB
 //
 // DrawSprite
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, const Colour& tint, const float rotation, const Point& scale, const Point& origin )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint, const float rotation, const Point& scale, const Point& origin )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( position.x, position.y, texture.GetWidth(), texture.GetHeight() ), scale, rotation, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), origin, false );
 }
@@ -133,7 +133,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, c
 //
 // DrawSprite
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, Point( 1, 1 ), 0, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), Point( 0, 0 ), false );
 }
@@ -144,7 +144,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteB
 // DrawSprite
 // Buffers a sprite that is first multiplied by modelView. A source sub-image can be defined.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( 0, 0, sourceBounds.width, sourceBounds.height ), Point( 1, 1 ), 0, tint, sourceBounds, Point( 0, 0 ), true, modelView );
 }
@@ -155,7 +155,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView,
 // DrawSprite
 // Buffers a sprite that is first multiplied by modelViw. A source sub-image and origin can be defined.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Point& origin, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Point& origin, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( 0, 0, sourceBounds.width, sourceBounds.height ), Point( 1, 1 ), 0, tint, sourceBounds, origin, true, modelView );
 }
@@ -165,7 +165,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView,
 // DrawSprite
 // Draws a sprite that is first multiplied by modelView.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView, const Colour& tint )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Matrix& modelView, const Colour& tint )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), Point( 1, 1 ), 0, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), Point( 0, 0 ), true, modelView );
 }
@@ -176,7 +176,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Matrix& modelView,
 // DrawSprite
 // Draws a sprite at texture size. Draws the entire texture.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, const Colour& tint, const float rotation, const Point& origin )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint, const float rotation, const Point& origin )
 {
 	spriteBuffer.BufferSprite( texture, Rectangle( position, texture.GetWidth(), texture.GetHeight() ), Point( 1, 1 ), rotation, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), origin, false );
 }
@@ -187,7 +187,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Point& position, c
 // DrawSprite
 // Draws a sprite which can be scaled in both the x and y axis.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& origin )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& origin )
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, Point( 1, 1 ), rotation, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), origin, false );
 }
@@ -198,7 +198,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteB
 // DrawSprite
 // Draws a sprite that can be scaled, and a sorce rectangle can define the texture coordinates area.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& origin )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& origin )
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, Point( 1, 1 ), rotation, tint, sourceBounds, origin, false );
 }
@@ -209,7 +209,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteB
 // DrawSprite
 // Buffers a sprite with a scale.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin)
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin)
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, scale, rotation, tint, Rectangle( 0, 0, texture.GetWidth(), texture.GetHeight() ), origin, false );
 }
@@ -220,7 +220,7 @@ void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteB
 // DrawSprite
 // Buffers a sprite with a scale. A source rectangle can define texture coordinates.
 //
-void Nixin::Canvas::DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin )
+void Nixin::Canvas::DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin )
 {
 	spriteBuffer.BufferSprite( texture, spriteBounds, scale, rotation, tint, sourceBounds, origin, false );
 }
@@ -258,7 +258,7 @@ void Nixin::Canvas::DrawString( const Font& font, const Point& position, const s
 		// If it's just a normal character, we draw it like any other sprite and add spacing and it's dimensions to the current width.
 		else											
 		{
-			spriteBuffer.BufferSprite( font.GetCharacterBitmap(), Rectangle( currentPosition, characterBounds.width, characterBounds.height ), Point( 1, 1 ), 0, tint, characterBounds, Point( 0, 0 ), false );
+            //spriteBuffer.BufferSprite( font.GetCharacterBitmap(), Rectangle( currentPosition, characterBounds.width, characterBounds.height ), Point( 1, 1 ), 0, tint, characterBounds, Point( 0, 0 ), false );
 			currentPosition.x += characterBounds.width;
 			currentPosition.x += font.GetCharacterPadding().x;
 		}

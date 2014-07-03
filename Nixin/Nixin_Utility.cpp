@@ -39,12 +39,10 @@ namespace Nixin
     void Utility::InitialiseNEShaders()
     {
         // Set up the default 2D shader.
-        ShaderFile vrt( "spriteVertex.txt", GL_VERTEX_SHADER, true );
-        ShaderFile frg( "spriteFragment.txt", GL_FRAGMENT_SHADER, true );
 
         NixinSpriteShader[std::this_thread::get_id()] = new ShaderProgram();
-        NixinSpriteShader[std::this_thread::get_id()]->AddFile( vrt );
-        NixinSpriteShader[std::this_thread::get_id()]->AddFile( frg );
+        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteVertex.txt", GL_VERTEX_SHADER, true ) );
+        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteFragment.txt", GL_FRAGMENT_SHADER, true ) );
         NixinSpriteShader[std::this_thread::get_id()]->LinkProgram();
 
         NixinPrimitiveShader[std::this_thread::get_id()] = new ShaderProgram();

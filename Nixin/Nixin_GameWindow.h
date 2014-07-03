@@ -5,6 +5,7 @@
 #include "Nixin_GameTime.h"
 #include "Nixin_SoundEngine.h"
 #include "Nixin_Canvas.h"
+#include "Nixin_Texture2D.h"
 
 namespace Nixin
 {
@@ -52,7 +53,7 @@ namespace Nixin
         double                      targetTimeStep          = 1000.0 / 60.0;
         bool                        runningGameLoop         = false;
         Canvas                      canvas;
-        Texture                     tex;
+        Texture2D                   tex;
         Point                       pos;
 
 

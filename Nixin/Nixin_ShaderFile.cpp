@@ -291,125 +291,116 @@ namespace Nixin
 
         // The last place the "in" keyword was found.
         size_t       last = 0;
-
-        // Find all in vertex attributes and extract their name and type from the source.
+        std::array<std::string, 3> tokens{ "in", "struct", "uniform" };
         while( true )
         {
-            last                    = source.find( "in", last );
-
-            // Only accept "in"s that are adjacent to either a whitespace or a semi-colon, otherwise we may mistake
-            // part of an identifier for the "in" keyword.
-            if( last != source.npos )
+            // Find the closest token to our position in the source.
+            size_t      closest = source.npos;
+            size_t      token   = 0;
+            for( size_t i = 0; i < tokens.size(); i++ )
             {
-                if( std::isspace( source[last + 2], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
+                size_t   position = source.find( tokens[i], last );
+                if( position < closest )
                 {
-                    // Get the line.
-                    std::string  line       = source.substr( last, source.find( ';', last ) - last );
-
-                    // Get the type.
-                    Utility::TrimToWhiteSpace( line );
-                    Utility::TrimTrailingWhiteSpace( line );
-                    std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
-
-                    // Get the name.
-                    Utility::TrimToWhiteSpace( line );
-                    Utility::TrimTrailingWhiteSpace( line );
-                    std::string  name       = line.substr( 0, line.size() );
-
-                    attributeFields.push_back( Field( name, type ) );
+                    closest = position;
+                    token = i;
                 }
             }
-            else
-            {
-                break;
-            }
+            last = closest;
 
-            // Move past this "in" so we don't find it again.
-            last += 2;
-        }
-
-        last = 0;
-
-        while( true )
-        {
-            last                    = source.find( "struct", last );
-
+            // If one of the tokens were found.
             if( last != source.npos )
             {
-                if( std::isspace( source[last + 6], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
+                // Make sure there is either a whitespace or semi-colon before and after a token, otherwise it part of an identifier or keyword. We don't want to deal
+                // with those.
+                if( std::isspace( source[last + tokens[token].size()], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
                 {
-                    // Get the struct block.
-                    std::string                     structBlock       = source.substr( last, source.find( '}', last ) - last );
-                    Utility::TrimToWhiteSpace( structBlock );
-                    Utility::TrimTrailingWhiteSpace( structBlock );
-                    UniformType                     type( structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) ) );
-
-                    structBlock = structBlock.substr( structBlock.find( "{" ) + 1 );
-
-                    while( structBlock.size() > 0 )
+                    // Check the first character to see if we found an "in", "struct", or "uniform" keyword.
+                    switch( source[last] )
                     {
-                        Field           field( "", "" );
-
-                        Utility::TrimToWhiteSpace( structBlock );
-                        Utility::TrimTrailingWhiteSpace( structBlock );
-                        field.type = structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) );
-                        Utility::TrimToWhiteSpace( structBlock );
-                        Utility::TrimTrailingWhiteSpace( structBlock );
-                        field.name = structBlock.substr( 0, Utility::IndexOfNext( structBlock, ';' ) );
-                        Utility::TrimToNext( structBlock, ';' );
-
-
-                        // FIX
-                        if( structBlock.size() > 0 )
+                        // "in"
+                        case 'i':
                         {
-                            type.members.push_back( field );
+                            // Get the line.
+                            std::string  line       = source.substr( last, source.find( ';', last ) - last );
+
+                            // Get the type.
+                            Utility::TrimToWhiteSpace( line );
+                            Utility::TrimTrailingWhiteSpace( line );
+                            std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
+
+                            // Get the name.
+                            Utility::TrimToWhiteSpace( line );
+                            Utility::TrimTrailingWhiteSpace( line );
+                            std::string  name       = line.substr( 0, line.size() );
+
+                            attributeFields.push_back( Field( name, type ) );
+                            break;
+                        }
+                        // "struct"
+                        case 's':
+                        {
+                            // Get the struct block.
+                            std::string                     structBlock       = source.substr( last, source.find( '}', last ) - last );
+                            Utility::TrimToWhiteSpace( structBlock );
+                            Utility::TrimTrailingWhiteSpace( structBlock );
+                            UniformType                     type( structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) ) );
+
+                            structBlock = structBlock.substr( structBlock.find( "{" ) + 1 );
+
+                            // Add all the fields until we reach the end of the struct block.
+                            while( true )
+                            {
+                                Field           field( "", "" );
+
+                                Utility::TrimToWhiteSpace( structBlock );
+                                Utility::TrimTrailingWhiteSpace( structBlock );
+                                field.type = structBlock.substr( 0, Utility::IndexOfNextWhiteSpace( structBlock ) );
+                                Utility::TrimToWhiteSpace( structBlock );
+                                Utility::TrimTrailingWhiteSpace( structBlock );
+                                field.name = structBlock.substr( 0, Utility::IndexOfNext( structBlock, ';' ) );
+                                Utility::TrimToNext( structBlock, ';' );
+
+                                if( structBlock.size() > 0 )
+                                {
+                                    type.members.push_back( field );
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+
+                            uniformTypes[type.name] = type;
+                            break;
+                        }
+                        // "uniform"
+                        case 'u':
+                        {
+                            // Get the line.
+                            std::string  line       = source.substr( last, source.find( ';', last ) - last );
+
+                            // Get the type.
+                            Utility::TrimToWhiteSpace( line );
+                            Utility::TrimTrailingWhiteSpace( line );
+                            std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
+
+                            // Get the name.
+                            Utility::TrimToWhiteSpace( line );
+                            Utility::TrimTrailingWhiteSpace( line );
+                            std::string  name       = line.substr( 0, line.size() );
+
+                            uniformFields.push_back( Field( name, type ) );
+                            break;
                         }
                     }
-
-                    uniformTypes[type.name] = type;
                 }
+                last += tokens[token].size();
             }
             else
             {
                 break;
             }
-
-            last += 6;
-        }
-
-
-        last = 0;
-
-        while( true )
-        {
-            last            = source.find( "uniform", last );
-
-            if( last != source.npos )
-            {
-                if( std::isspace( source[last + 7], std::locale( "C" ) ) && ( std::isspace( source[last - 1], std::locale( "C" ) ) || source[last - 1] == ';' ) )
-                {
-                    // Get the line.
-                    std::string  line       = source.substr( last, source.find( ';', last ) - last );
-
-                    // Get the type.
-                    Utility::TrimToWhiteSpace( line );
-                    Utility::TrimTrailingWhiteSpace( line );
-                    std::string  type       = line.substr( 0, Utility::IndexOfNextWhiteSpace( line ) );
-
-                    // Get the name.
-                    Utility::TrimToWhiteSpace( line );
-                    Utility::TrimTrailingWhiteSpace( line );
-                    std::string  name       = line.substr( 0, line.size() );
-
-                    uniformFields.push_back( Field( name, type ) );
-                }
-            }
-            else
-            {
-                break;
-            }
-
-            last += 7;
         }
     }
 }

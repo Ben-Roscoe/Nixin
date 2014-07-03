@@ -28,6 +28,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindowTest
 {
 public:
+    QAction *actionLo;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QVBoxLayout *OpenGLLayout;
@@ -43,6 +44,8 @@ public:
         if (MainWindowTest->objectName().isEmpty())
             MainWindowTest->setObjectName(QStringLiteral("MainWindowTest"));
         MainWindowTest->resize(800, 600);
+        actionLo = new QAction(MainWindowTest);
+        actionLo->setObjectName(QStringLiteral("actionLo"));
         centralwidget = new QWidget(MainWindowTest);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -88,6 +91,7 @@ public:
     void retranslateUi(QMainWindow *MainWindowTest)
     {
         MainWindowTest->setWindowTitle(QApplication::translate("MainWindowTest", "MainWindow", 0));
+        actionLo->setText(QApplication::translate("MainWindowTest", "lo", 0));
         pushButton_2->setText(QApplication::translate("MainWindowTest", "Move", 0));
         pushButton->setText(QApplication::translate("MainWindowTest", "Close", 0));
     } // retranslateUi

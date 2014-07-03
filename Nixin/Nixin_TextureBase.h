@@ -4,7 +4,9 @@
 
 
 #include "Nixin_Types.h"
+
 #include <QOpenGLFunctions_4_3_Core>
+#include <memory>
 
 
 namespace Nixin
@@ -19,13 +21,12 @@ namespace Nixin
 
 
         TextureBase();
-        TextureBase( const TextureBase& other );
-        TextureBase( TextureBase&& other );
-        TextureBase& operator=( TextureBase other );
         virtual ~TextureBase();
 
-        friend void                        swap( TextureBase& a, TextureBase& b );
-
+        GLuint                             GetID() const;
+        bool                               IsMutable() const;
+        GLint                              GetLevels() const;
+        GLenum                             GetInternalFormat() const;
 
 
     protected:
@@ -33,11 +34,14 @@ namespace Nixin
 
 
 
-        OpenGLFunctions*                    gl    = QOpenGLContext::currentContext()->versionFunctions<OpenGLFunctions>();
-        GLuint                              id    = 0;
-
+        OpenGLFunctions*                    gl          = QOpenGLContext::currentContext()->versionFunctions<OpenGLFunctions>();
+        OpenGLHandle                        id;
+        bool                                isMutable   = true;
+        GLenum                              internalFormat   = 0;
+        GLsizei                             levels           = 0;
 
         void                                GenTexture();
+        void                                DisposeTexture() const;
 
 
 

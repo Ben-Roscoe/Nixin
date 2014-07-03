@@ -11,6 +11,7 @@
 #include "Nixin_Font.h"
 #include "Nixin_GLBuffer.h"
 #include "Nixin_SpriteBuffer.h"
+#include "Nixin_Texture2D.h"
 
 #include <vector>
 #include <stack>
@@ -63,18 +64,18 @@ namespace Nixin
 
 		void								BeginSpriteDrawing();
 		void								BeginSpriteDrawing( ShaderProgram& customShader );
-		void								DrawSprite( const Texture& texture, const Point& position, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Matrix& modelView, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Point& origin, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Point& position, const Colour& tint, const float rotation, const Point& origin );
-		void								DrawSprite( const Texture& texture, const Point& position, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& origin );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& origin );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
-		void								DrawSprite( const Texture& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Matrix& modelView, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Matrix& modelView, const Rectangle& sourceBounds, const Point& origin, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint, const float rotation, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Point& position, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
+        void								DrawSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Rectangle& sourceBounds, const Colour& tint, const float rotation, const Point& scale, const Point& origin );
 
 		void								DrawString( const Font& font, const Point& position, const std::string& text, const Colour& tint );
 

@@ -7,6 +7,7 @@
 #include "Nixin_Texture.h"
 #include "Nixin_ShaderProgram.h"
 #include "Nixin_Types.h"
+#include "Nixin_Texture2D.h"
 
 #include <QOpenGLFunctions_4_3_Core>
 
@@ -75,7 +76,7 @@ namespace Nixin
 		void								Grow( const float multiplier );
 		void								OrderIndices();
 		void								SortSprites();
-		void								BufferSprite( const Texture& texture, const Rectangle& spriteBounds, const Point& scale, const float rotation, const Colour& tint, const Rectangle& sourceBounds, const Point& origin, const bool matrix, const Matrix& inModelView = Matrix() );
+        void								BufferSprite( const Texture2D& texture, const Rectangle& spriteBounds, const Point& scale, const float rotation, const Colour& tint, const Rectangle& sourceBounds, const Point& origin, const bool matrix, const Matrix& inModelView = Matrix() );
 		bool								CheckSpriteBufferSize();
 
 		SpriteDrawingMode					GetSpriteDrawingMode() const

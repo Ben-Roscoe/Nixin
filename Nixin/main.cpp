@@ -104,7 +104,8 @@
 #include "Nixin_TransformFeedback.h"
 #include "Nixin_Uniform.h"
 #include "Nixin_Utility.h"
-
+#include "Nixin_Texture1D.h"
+#include "Nixin_Texture2D.h"
 
 
 

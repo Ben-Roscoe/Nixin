@@ -7,36 +7,10 @@ uniform sampler2D		spriteTexture;
 out vec4				colour;
 
 
-
-struct abc
-{
-	float a;
-	bool	 d;
-	float	 k;
-};
-
-
-struct asdf
-{
-	float r;
-	float g;
-	float b;
-	float a;
-	abc	 d;
-};
-
-uniform asdf kkk;
-
-
 //
 // main
 //
 void main()
 {
-	asdf c;
-	c.r = 1.0f;
-	c.g = 0.0f;
-	c.b = 0.0f;
-	c.a = 1.0f;
-	colour = vec4( c.r, c.g, c.b, c.a );//texture2D( spriteTexture, fragTexCoords ) * fragTint;
+	colour = texture2D( spriteTexture, fragTexCoords ) * fragTint;
 }

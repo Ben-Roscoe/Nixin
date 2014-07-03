@@ -65,6 +65,11 @@
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLo">
+   <property name="text">
+    <string>lo</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
