@@ -119,6 +119,12 @@ int main( int argc, char* argv[] )
     Nixin::Application::Start();
 
     MainWindowTest                  mainWindow;
+   // Nixin::GameWindow g;
+
+//    g.show();
+
+//    g.InitialiseGameLoop();
+//    g.StartGameLoop();
 
     return a.exec();
 }

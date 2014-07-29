@@ -117,4 +117,14 @@ HEADERS += \
 FORMS += \
     mainwindowtest.ui
 
+OTHER_FILES += \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/PrimitiveFragment.txt \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/primitiveVertex.txt \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/spriteFragment.txt \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/spriteVertex.txt \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/PrimitiveFragment.glsl \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/primitiveVertex.glsl \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/spriteFragment.glsl \
+    ../build-Nixin-Clone_of_Desktop_Qt_5_3_0_MSVC2013_OpenGL_32bit-Debug/spriteVertex.glsl
+
 

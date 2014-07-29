@@ -11,7 +11,13 @@ namespace Nixin
     //
     Texture1D::Texture1D()
     {
+        Bind();
 
+        // Set default texture parameters.
+        gl->glTexParameteri( target, GL_TEXTURE_WRAP_S, wrapS );
+        gl->glTexParameteri( target, GL_TEXTURE_WRAP_T, wrapT );
+        gl->glTexParameteri( target, GL_TEXTURE_MAG_FILTER, magFilter );
+        gl->glTexParameteri( target, GL_TEXTURE_MIN_FILTER, minFilter );
     }
 
 

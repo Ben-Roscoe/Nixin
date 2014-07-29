@@ -16,13 +16,15 @@ MainWindowTest::MainWindowTest(QWidget *parent) :
 
     ui->OpenGLLayout->addWidget( gameWindowContainer );
     gameWindowContainer->show();
-    gameWindow.Draw();
     gameWindowContainer->setMouseTracking( true );
+
+    gameWindow.StartGameLoop();
 
 }
 
 MainWindowTest::~MainWindowTest()
 {
+    gameWindow.StopGameLoop();
     delete ui;
 }
 
@@ -38,5 +40,4 @@ void MainWindowTest::on_pushButton_2_clicked()
 void MainWindowTest::mouseMoveEvent(QMouseEvent *ev)
 {
     gameWindow.MoveBrick( Nixin::Point( ev->x(), ev->y() ) );
-    gameWindow.Draw();
 }

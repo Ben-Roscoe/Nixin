@@ -19,22 +19,9 @@ namespace Nixin
         Font::Initialise();
 
         canvas.SetClearColourValue( Colour::CornflowerBlue );
+        canvas.EnableAlphaBlending();
 
-        Image as( "brick.png" );
-        //as.ConvertTo32Bits();
-        Image image32( as );
-        //tex.Bind();
-        gl->glBindTexture( GL_TEXTURE_2D, tex.GetID() );
-        gl->glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
-        gl->glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
-        gl->glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-        gl->glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-        tex.SetMutableStorage( 0, image32.GetWidth(), image32.GetHeight(), GL_RGBA, GL_BGRA, GL_UNSIGNED_BYTE, ( GLvoid* )image32.GetPixels<float>() );
-
-
-
-        //tex.SetImmutableStorage( 1, image32.GetWidth(), image32.GetHeight(), GL_RGBA );
-        //tex.SetData( 0, GL_BGRA, GL_UNSIGNED_BYTE, image32.GetWidth(), image32.GetHeight(), ( GLvoid* )image32.GetPixels<float>() );
+        tex.SetMutableStorage( 0, GL_RGBA, "brick.png" );
     }
 
 
@@ -76,6 +63,23 @@ namespace Nixin
     void GameWindow::Update()
     {
         gameTime.Update();
+
+        if( keyboard.IsKeyDown( Qt::Key_A ) )
+        {
+            pos.x--;
+        }
+        else if( keyboard.IsKeyDown( Qt::Key_D ) )
+        {
+            pos.x++;
+        }
+        if( keyboard.IsKeyDown( Qt::Key_S ) )
+        {
+            pos.y--;
+        }
+        else if( keyboard.IsKeyDown( Qt::Key_W ) )
+        {
+            pos.y++;
+        }
     }
 
 
@@ -88,10 +92,8 @@ namespace Nixin
         canvas.ClearBuffer( true, false, false );
 
         canvas.BeginSpriteDrawing();
-        canvas.DrawSprite( tex, Rectangle( 50, 50, 200, 200 ), Colour::White );
+        canvas.DrawSprite( tex, Rectangle( pos, 200, 200 ), Colour::White );
         canvas.EndSpriteDrawing();
-
-        SwapBuffers();
     }
 
 
@@ -117,6 +119,26 @@ namespace Nixin
             RunFrame();
         }
         UninitialiseGameLoop();
+    }
+
+
+
+    //
+    // StartGameLoop
+    //
+    void GameWindow::StartGameLoop()
+    {
+        timerId = startTimer( targetTimeStep );
+    }
+
+
+
+    //
+    // StopGameLopp
+    //
+    void GameWindow::StopGameLoop()
+    {
+        killTimer( timerId );
     }
 
 
@@ -171,6 +193,36 @@ namespace Nixin
 
 
 
+    //
+    // keyPressEvent
+    //
+    void GameWindow::keyPressEvent( QKeyEvent *e )
+    {
+        keyboard.SetKey( e );
+    }
+
+
+
+    //
+    // keyReleaseEvent
+    //
+    void GameWindow::keyReleaseEvent( QKeyEvent *e )
+    {
+        keyboard.SetKey( e );
+    }
+
+
+
+    //
+    // timerEvent
+    //
+    void GameWindow::timerEvent( QTimerEvent *e )
+    {
+        RunFrame();
+    }
+
+
+
 
     //
     // resizeEvent
@@ -179,6 +231,5 @@ namespace Nixin
     {
         canvas.SetBounds( Rectangle( 0, 0, ev->size().width(), ev->size().height() ) );
         canvas.camera.SetOrthoProjection( Rectangle( 0, 0, ev->size().width(), ev->size().height() ) );
-        Draw();
     }
 }

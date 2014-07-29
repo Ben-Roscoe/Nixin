@@ -35,6 +35,7 @@ namespace Nixin
         static void                                                     TrimTrailingWhiteSpace( std::string& str );
         static size_t                                                   IndexOfNextWhiteSpace( const std::string& str );
         static size_t                                                   IndexOfNext( const std::string& str, char c );
+        static size_t                                                   FindFirstOf( const std::vector<std::string>& tokens, const std::string& str, size_t& token, size_t start = 0 );
 
 
 

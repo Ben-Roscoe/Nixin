@@ -2,69 +2,79 @@
 
 
 
-// Initialises static members.
-bool Nixin::Keyboard::keys[65536];
-int Nixin::Keyboard::inputs;
-
-
-
-// Public static:
-
-
-
-//
-// Initialise
-// Set all key flags to 0.
-//
-void Nixin::Keyboard::Initialise()
+namespace Nixin
 {
-    for( int i = 0; i < std::numeric_limits<uint16_t>::max(); i++ )
-	{
-        keys[i] = false;
-	}
-}
 
 
 
-//
-// SetKey
-// Set a certain key to be either up or down.
-//
-void Nixin::Keyboard::SetKey( const uint16_t wParam, const bool isDown )
-{
-	isDown ? inputs++ : inputs--;						// Increases / decreases the inputs count.
-    keys[wParam] = isDown;
-}
+    // Public static:
 
 
 
-//
-// IsKeyDown
-// Checks if a key is down.
-//
-bool Nixin::Keyboard::IsKeyDown( const Key key )
-{
-    return keys[( uint16_t )key];
-}
+    //
+    // Initialise
+    // Set all key flags to 0.
+    //
+    void Keyboard::Initialise()
+    {
+        for( int i = 0; i < std::numeric_limits<uint16_t>::max(); i++ )
+        {
+            keys[i] = false;
+        }
+    }
 
 
 
-//
-// IsKeyUp
-// Checks if a key is up.
-//
-bool Nixin::Keyboard::IsKeyUp( const Key key )
-{
-    return !keys[( uint16_t )key];
-}
+    //
+    // SetKey
+    // Set a certain key to be either up or down.
+    //
+    void Keyboard::SetKey( QKeyEvent* e )
+    {
+        if( e->type() == QEvent::KeyPress )
+        {
+            inputs++;
+            keys[e->key()] = true;
+        }
+        else if( e->type() == QEvent::KeyRelease )
+        {
+            inputs--;
+            keys[e->key()] = false;
+        }
+    }
 
 
 
-//
-// IsAnyKeyDown
-// Checks if any key on the keyboard is being pressed.
-//
-bool Nixin::Keyboard::IsAnyKeyDown()
-{
-	return ( inputs <= 0 );
+    //
+    // IsKeyDown
+    // Checks if a key is down.
+    //
+    bool Keyboard::IsKeyDown( int key )
+    {
+        return keys[key];
+    }
+
+
+
+    //
+    // IsKeyUp
+    // Checks if a key is up.
+    //
+    bool Keyboard::IsKeyUp( int key )
+    {
+        return !keys[key];
+    }
+
+
+
+    //
+    // IsAnyKeyDown
+    // Checks if any key on the keyboard is being pressed.
+    //
+    bool Keyboard::IsAnyKeyDown()
+    {
+        return ( inputs <= 0 );
+    }
+
+
 }

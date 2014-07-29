@@ -11,6 +11,6 @@ out vec4        fragColour;
 //
 void main()
 {
-	fragColour = colour;
+    fragColour = colour;
     gl_Position = projection * vec4( position.xy, 0.5f, 1.0f );
 }

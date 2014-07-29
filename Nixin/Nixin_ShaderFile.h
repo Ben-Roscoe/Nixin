@@ -89,7 +89,7 @@ namespace Nixin
 
 
         OpenGLFunctions*            gl                  = QOpenGLContext::currentContext()->versionFunctions<OpenGLFunctions>();
-        GLuint                      id                  = 0;
+        OpenGLHandle                id;
         GLenum                      type                = GL_VERTEX_SHADER;
         std::string                 source              = "";
         std::vector<Field>          uniformFields;
@@ -101,6 +101,7 @@ namespace Nixin
 
 
         void                        GenFile();
+        void                        DisposeFile();
         void                        GenerateMetaData();
     };
 }

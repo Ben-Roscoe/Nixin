@@ -28,6 +28,15 @@ namespace Nixin
         GLint                              GetLevels() const;
         GLenum                             GetInternalFormat() const;
 
+        GLenum                             GetWrapS() const;
+        void                               SetWrapS( GLenum newWrapS );
+        GLenum                             GetWrapT() const;
+        void                               SetWrapT( GLenum newWrapT );
+        GLenum                             GetMagFilter() const;
+        void                               SetMagFilter( GLenum newMagFilter );
+        GLenum                             GetMinFilter() const;
+        void                               SetMinFilter( GLenum newMinFilter );
+
 
     protected:
 
@@ -39,6 +48,13 @@ namespace Nixin
         bool                                isMutable   = true;
         GLenum                              internalFormat   = 0;
         GLsizei                             levels           = 0;
+
+        GLenum                              wrapS            = GL_REPEAT;
+        GLenum                              wrapT            = GL_REPEAT;
+        GLenum                              magFilter        = GL_LINEAR;
+        GLenum                              minFilter        = GL_LINEAR;
+
+        bool                                firstBind        = true;
 
         void                                GenTexture();
         void                                DisposeTexture() const;

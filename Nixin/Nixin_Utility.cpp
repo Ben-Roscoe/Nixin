@@ -41,13 +41,13 @@ namespace Nixin
         // Set up the default 2D shader.
 
         NixinSpriteShader[std::this_thread::get_id()] = new ShaderProgram();
-        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteVertex.txt", GL_VERTEX_SHADER, true ) );
-        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteFragment.txt", GL_FRAGMENT_SHADER, true ) );
+        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteVertex.glsl", GL_VERTEX_SHADER, true ) );
+        NixinSpriteShader[std::this_thread::get_id()]->AddFile( ShaderFile( "spriteFragment.glsl", GL_FRAGMENT_SHADER, true ) );
         NixinSpriteShader[std::this_thread::get_id()]->LinkProgram();
 
         NixinPrimitiveShader[std::this_thread::get_id()] = new ShaderProgram();
-        NixinPrimitiveShader[std::this_thread::get_id()]->AddFile( ShaderFile( "primitiveVertex.txt", GL_VERTEX_SHADER, true ) );
-        NixinPrimitiveShader[std::this_thread::get_id()]->AddFile( ShaderFile( "primitiveFragment.txt", GL_FRAGMENT_SHADER, true ) );
+        NixinPrimitiveShader[std::this_thread::get_id()]->AddFile( ShaderFile( "primitiveVertex.glsl", GL_VERTEX_SHADER, true ) );
+        NixinPrimitiveShader[std::this_thread::get_id()]->AddFile( ShaderFile( "primitiveFragment.glsl", GL_FRAGMENT_SHADER, true ) );
         NixinPrimitiveShader[std::this_thread::get_id()]->LinkProgram();
     }
 
@@ -210,6 +210,29 @@ namespace Nixin
         size_t  i = 0;
         for( ; i < str.size() && str[i] != c; i++ ){}
         return i;
+    }
+
+
+
+    //
+    // FindFirstOf
+    //
+    size_t Utility::FindFirstOf( const std::vector<std::string>& tokens, const std::string& str, size_t& token, size_t start )
+    {
+        size_t      closest = str.npos;
+        token               = 0;
+
+        for( size_t i = 0; i < tokens.size(); i++ )
+        {
+            size_t   position = str.find( tokens[i], start );
+            if( position < closest )
+            {
+                closest = position;
+                token = i;
+            }
+        }
+
+        return closest;
     }
 
 }

@@ -69,7 +69,6 @@ namespace Nixin
         GLuint                                    id            = 0;
         bool									  linked        = false;
 
-        std::vector<ShaderFile*>                   files;
         std::map<std::string, std::unique_ptr<UniformBase>> uniforms;
         std::map<std::string, VertexAttribute>              attributes;
         std::map<std::string, UniformType>                  types;

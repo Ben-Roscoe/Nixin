@@ -12,6 +12,13 @@ namespace Nixin
     //
     Texture2D::Texture2D()
     {
+        Bind();
+
+        // Set default texture parameters.
+        gl->glTexParameteri( target, GL_TEXTURE_WRAP_S, wrapS );
+        gl->glTexParameteri( target, GL_TEXTURE_WRAP_T, wrapT );
+        gl->glTexParameteri( target, GL_TEXTURE_MAG_FILTER, magFilter );
+        gl->glTexParameteri( target, GL_TEXTURE_MIN_FILTER, minFilter );
     }
 
 
@@ -78,13 +85,44 @@ namespace Nixin
 
 
     //
+    // SetMutableStorage
+    //
+    void Texture2D::SetMutableStorage( GLint textureLevel, GLenum textureInternalFormat, const Image& image )
+    {
+        if( isMutable )
+        {
+            width   = image.GetWidth();
+            height  = image.GetHeight();
+            internalFormat = textureInternalFormat;
+
+            gl->glTexImage2D( target, textureLevel, internalFormat, width, height, border, GL_BGRA, GL_UNSIGNED_BYTE, image.GetPixels<float>() );
+        }
+    }
+
+
+
+    //
+    // SetMutableStorage
+    //
+    void Texture2D::SetMutableStorage( GLint textureLevel, GLenum textureInternalFormat, const std::string& fileName )
+    {
+        if( isMutable )
+        {
+            Image image( fileName );
+            SetMutableStorage( textureLevel, textureInternalFormat, image );
+        }
+    }
+
+
+
+    //
     // SetData
     //
     void Texture2D::SetData( GLint level, GLenum dataFormat, GLenum dataType, GLsizei dataWidth, GLsizei dataHeight, const void* data, GLint xoffset, GLint yoffset ) const
     {
         if( xoffset < 0 || ( xoffset + dataWidth ) >= width || dataWidth < 0 || yoffset < 0 || ( yoffset + dataHeight ) >= height || dataHeight < 0 )
         {
-            Debug::FatalError( "Attempted to set data to an invalid range in a immutable texture 1D array." );
+            Debug::FatalError( "Attempted to set data to an invalid range in a immutable texture 2D array." );
         }
         gl->glTexSubImage2D( target, level, xoffset, yoffset, dataWidth, dataHeight, dataFormat, dataType, data );
     }
@@ -98,7 +136,7 @@ namespace Nixin
     {
         if( xoffset < 0 || ( xoffset + dataWidth ) >= width || dataWidth < 0 || yoffset < 0 || ( yoffset + dataHeight ) >= height || dataHeight < 0 )
         {
-            Debug::FatalError( "Attempted to set data to an invalid range in a immutable texture 1D array." );
+            Debug::FatalError( "Attempted to set data to an invalid range in a immutable texture 2D array." );
         }
         gl->glCopyTexSubImage2D( target, level, xoffset, yoffset, x, y, dataWidth, dataHeight );
     }

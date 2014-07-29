@@ -6,6 +6,7 @@
 #include "Nixin_SoundEngine.h"
 #include "Nixin_Canvas.h"
 #include "Nixin_Texture2D.h"
+#include "Nixin_Keyboard.h"
 
 namespace Nixin
 {
@@ -25,9 +26,15 @@ namespace Nixin
         virtual void Draw();
 
         virtual void GameLoop();
+        virtual void StartGameLoop();
+        virtual void StopGameLoop();
         virtual void InitialiseGameLoop();
         virtual void UninitialiseGameLoop();
         virtual void RunFrame();
+
+        virtual void keyPressEvent( QKeyEvent* e );
+        virtual void keyReleaseEvent( QKeyEvent* e );
+        virtual void timerEvent( QTimerEvent* e );
 
         void         MoveBrick( Point newPosition )
         {
@@ -50,6 +57,7 @@ namespace Nixin
 
         GameTime                    gameTime;
         SoundEngine                 soundEngine;
+        Keyboard                    keyboard;
         double                      targetTimeStep          = 1000.0 / 60.0;
         bool                        runningGameLoop         = false;
         Canvas                      canvas;
@@ -63,6 +71,7 @@ namespace Nixin
 
         double                      lastTime                = 0.0f;
         double                      timeBehind              = 0.0f;
+        int                         timerId                 = 0;
 
 
 
